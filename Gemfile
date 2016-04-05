@@ -17,6 +17,7 @@ gem 'decent_decoration'
 gem 'devise'
 gem 'draper'
 gem 'haml'
+gem 'material_design_lite-sass'
 gem 'thin'
 
 group :development, :test do
