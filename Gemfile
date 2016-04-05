@@ -16,6 +16,8 @@ gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'devise'
 gem 'draper'
+gem 'haml'
+gem 'thin'
 
 group :development, :test do
   gem 'byebug'
@@ -26,6 +28,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'better_errors'
   gem 'spring'
 end
