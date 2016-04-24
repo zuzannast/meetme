@@ -4,32 +4,39 @@ require 'json'
 require_relative 'model/scraper_movie.rb'
 require_relative 'model/scraper_theater.rb'
 
-print "enter city: "
-city = STDIN.gets.downcase.chomp
+class Scraper
+  attr_accessor :city
 
-html = Nokogiri::HTML(open("http://www.google.com/movies?mid=&hl=en&near=#{city}"))
+  def initialize(city)
+    @city = city
+  end
 
-results = []
-html.css('#movie_results .theater').each do |div|
-    where = div.css('h2 a').text
-    movies = []
-    theater = ScraperTheater.new(where, movies).to_h
+  def run
+    html = Nokogiri::HTML(open("http://www.google.com/movies?mid=&hl=en&near=#{city}"))
 
-    div.css('.movie').each do |movie|
-        title = movie.css('.name a').text
-        showtimes = []
-        times = movie.css('.times').text
-          .gsub('#8206;', '')
-          .gsub('&nbsp;', '')
-          .gsub('&nbsp', '')
-          .gsub('&', '')
-          .gsub('&#39;', "'")
-        showtimes = times.split(" ")
-        movie_result = ScraperMovie.new(title, showtimes).to_h
-        movies.push(movie_result)
+    results = []
+    html.css('#movie_results .theater').each do |div|
+        where = div.css('h2 a').text
+        movies = []
+        theater = ScraperTheater.new(where, movies).to_h
+
+        div.css('.movie').each do |movie|
+            title = movie.css('.name a').text
+            showtimes = []
+            times = movie.css('.times').text
+              .gsub('#8206;', '')
+              .gsub('&nbsp;', '')
+              .gsub('&nbsp', '')
+              .gsub('&', '')
+              .gsub('&#39;', "'")
+            showtimes = times.split(" ")
+            movie_result = ScraperMovie.new(title, showtimes).to_h
+            movies.push(movie_result)
+        end
+        results.push(theater)
     end
-    results.push(theater)
+
+
+    results.to_json
+  end
 end
-
-
-print results.to_json
