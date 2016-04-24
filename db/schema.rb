@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412160317) do
+ActiveRecord::Schema.define(version: 20160424094317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,15 +22,6 @@ ActiveRecord::Schema.define(version: 20160412160317) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
-
-  create_table "cinemas", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "city_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "cinemas", ["city_id"], name: "index_cinemas_on_city_id", using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -63,14 +54,23 @@ ActiveRecord::Schema.define(version: 20160412160317) do
 
   create_table "showtimes", force: :cascade do |t|
     t.string   "time"
-    t.integer  "cinema_id"
+    t.integer  "theater_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "movie_id"
   end
 
-  add_index "showtimes", ["cinema_id"], name: "index_showtimes_on_cinema_id", using: :btree
   add_index "showtimes", ["movie_id"], name: "index_showtimes_on_movie_id", using: :btree
+  add_index "showtimes", ["theater_id"], name: "index_showtimes_on_theater_id", using: :btree
+
+  create_table "theaters", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "theaters", ["city_id"], name: "index_theaters_on_city_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

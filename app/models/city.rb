@@ -1,3 +1,3 @@
 class City < ActiveRecord::Base
-  has_many :cinemas
+  has_many :theaters
 end
