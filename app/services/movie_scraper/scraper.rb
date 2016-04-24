@@ -18,8 +18,7 @@ module MovieScraper
           name = div.css('h2 a').text
           movies = []
 
-          theater = MovieScraper::Models::Theater.new(name, city_name)
-          theater.to_h
+          theater = MovieScraper::Models::Theater.new(name, city_name).to_h
 
           div.css('.movie').each do |movie|
               title = movie.css('.name a').text
@@ -31,7 +30,9 @@ module MovieScraper
                 .gsub('&', '')
                 .gsub('&#39;', "'")
               showtimes = times.split(" ")
-              movie_result = MovieScraper::Models::Movie.new(title, showtimes).to_h
+              info = movie.css('.info').text.split(" - ")
+
+              movie_result = MovieScraper::Models::Movie.new(title, showtimes, theater["name"], info).to_h
               movies.push(movie_result)
           end
           results.push(theater)
