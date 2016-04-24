@@ -18,6 +18,7 @@ gem 'devise'
 gem 'draper'
 gem 'haml'
 gem 'material_design_lite-sass'
+gem 'nokogiri'
 gem 'thin'
 
 group :development, :test do
