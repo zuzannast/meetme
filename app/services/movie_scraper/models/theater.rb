@@ -1,6 +1,6 @@
 module MovieScraper
   module Models
-    class ScraperTheater
+    class Theater
       attr_accessor :where, :movies
 
       def initialize(where, movies)

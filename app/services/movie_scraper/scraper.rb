@@ -11,7 +11,7 @@ module MovieScraper
     end
 
     def run
-      html = Nokogiri::HTML(open("http://www.google.com/movies?mid=&hl=en&near=#{city}"))
+      html = Nokogiri::HTML(open("http://www.google.com/movies?mid=&hl=en&near=#{I18n.transliterate(city)}"))
 
       results = []
       html.css('#movie_results .theater').each do |div|
@@ -35,7 +35,7 @@ module MovieScraper
           results.push(theater)
       end
 
-      results.to_json
+      puts results.to_json
     end
   end
 end
