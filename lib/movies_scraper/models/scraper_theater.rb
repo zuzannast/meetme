@@ -1,4 +1,4 @@
-class Theater
+class ScraperTheater
   def initialize(where, movies)
     @where = where
     @movies = movies

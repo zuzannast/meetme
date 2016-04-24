@@ -1,4 +1,4 @@
-class Movie
+class ScraperMovie
   def initialize(title, showtimes)
     @title = title
     @showtimes = showtimes
