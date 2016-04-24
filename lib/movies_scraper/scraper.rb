@@ -1,8 +1,8 @@
 require 'nokogiri'
 require 'open-uri'
 require 'json'
-require_relative 'model/scraper_movie.rb'
-require_relative 'model/scraper_theater.rb'
+require_relative 'models/scraper_movie.rb'
+require_relative 'models/scraper_theater.rb'
 
 class Scraper
   attr_accessor :city
