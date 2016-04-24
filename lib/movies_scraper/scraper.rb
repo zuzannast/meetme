@@ -37,6 +37,6 @@ class Scraper
     end
 
 
-    results.to_json
+    puts results.to_json
   end
 end
