@@ -1,11 +1,10 @@
 module MovieScraper
   module Models
     class Theater
-      attr_accessor :name, :movies, :city_name
+      attr_accessor :name, :city_name
 
-      def initialize(name, movies, city_name)
+      def initialize(name, city_name)
         @name = name
-        @movies = movies
         @city_name = city_name
         find_or_create_theaters
       end

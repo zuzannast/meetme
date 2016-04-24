@@ -18,7 +18,7 @@ module MovieScraper
           name = div.css('h2 a').text
           movies = []
 
-          theater = MovieScraper::Models::Theater.new(name, movies, city_name)
+          theater = MovieScraper::Models::Theater.new(name, city_name)
           theater.to_h
 
           div.css('.movie').each do |movie|
