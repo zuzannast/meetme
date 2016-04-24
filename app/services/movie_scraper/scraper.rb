@@ -4,20 +4,22 @@ require 'json'
 
 module MovieScraper
   class Scraper
-    attr_accessor :city
+    attr_accessor :city_name
 
-    def initialize(city)
-      @city = city
+    def initialize(city_name)
+      @city_name = city_name
     end
 
     def run
-      html = Nokogiri::HTML(open("http://www.google.com/movies?mid=&hl=en&near=#{I18n.transliterate(city)}"))
+      html = Nokogiri::HTML(open("http://www.google.com/movies?mid=&hl=en&near=#{I18n.transliterate(city_name)}"))
 
       results = []
       html.css('#movie_results .theater').each do |div|
-          where = div.css('h2 a').text
+          name = div.css('h2 a').text
           movies = []
-          theater = MovieScraper::Models::Theater.new(where, movies).to_h
+
+          theater = MovieScraper::Models::Theater.new(name, movies, city_name)
+          theater.to_h
 
           div.css('.movie').each do |movie|
               title = movie.css('.name a').text
