@@ -29,8 +29,8 @@ module MovieScraper
         if title.present?
           @movie = ::Movie.find_or_create_by(
             title: title,
-            description: info_hash["time"],
-            origin: info_hash["origin"]
+            description: info_hash[:time],
+            origin: info_hash[:origin]
           )
         end
       end
@@ -44,15 +44,15 @@ module MovieScraper
       end
 
       def add_genres
-        info_hash["genres"].each do |genre_name|
-          movie.genres << ::Genre.find_or_create_by(genre_name)
+        info_hash[:genres].each do |genre_name|
+          movie.genres << ::Genre.find_or_create_by(name: genre_name)
         end
       end
 
       def add_showtimes
         showtimes.each do |showtime|
           ::Showtime.find_or_create_by(
-            showtime,
+            time: showtime,
             movie: movie,
             theater: theater
           )
