@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
-  include CityHelper
+  include ShowtimeHelper
   expose(:event) { Event.find(params[:id]) }
   expose(:events) { Event.all }
-  expose(:cities) { cities_for_select }
+  expose(:showtimes) { showtimes_for_select }
 
   def show
   end

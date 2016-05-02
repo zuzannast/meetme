@@ -10,4 +10,4 @@
   .field
     = f.label :showtime
     %br/
-    = f.select :showtime, Showtime.all.collect { |s| [s.time, s.id] }
+    = f.select :showtime, showtimes_for_select
