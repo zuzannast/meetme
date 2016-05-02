@@ -1,0 +1,14 @@
+%h1
+  About user
+%h4
+  Name
+  %p
+    = user.try(:first_name)
+    = user.try(:last_name)
+%h4
+  Email
+  %p= user.email
+
+%h4
+  City
+  %p=user.try(:city)
