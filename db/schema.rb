@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502131435) do
+ActiveRecord::Schema.define(version: 20160502163009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160502131435) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "showtime_id"
   end
 
   create_table "events_users", force: :cascade do |t|
@@ -77,10 +78,8 @@ ActiveRecord::Schema.define(version: 20160502131435) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "movie_id"
-    t.integer  "event_id"
   end
 
-  add_index "showtimes", ["event_id"], name: "index_showtimes_on_event_id", using: :btree
   add_index "showtimes", ["movie_id"], name: "index_showtimes_on_movie_id", using: :btree
   add_index "showtimes", ["theater_id"], name: "index_showtimes_on_theater_id", using: :btree
 
