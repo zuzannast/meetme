@@ -14,3 +14,6 @@ config/database.yml
 config/secrets.yml
 
 logfile
+/node_modules
+/app/assets/javascripts/react_bundle.js
+/app/assets/stylesheets/react_bundle.css
