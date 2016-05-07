@@ -1,5 +1,5 @@
 //= require jquery
 //= require jquery_ujs
-//= reuire react
+//= require react
 //= require material
 //= require_tree .
