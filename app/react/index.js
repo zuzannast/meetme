@@ -6,3 +6,6 @@ RWR.registerComponent('HelloWorld', HelloWorld);
 
 import Main from './components/main';
 RWR.registerComponent('Main', Main);
+
+import Greet from './components/greet';
+RWR.registerComponent('Greet', Greet);
