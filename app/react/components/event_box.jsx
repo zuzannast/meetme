@@ -5,9 +5,13 @@ export default class EventBox extends React.Component {
     return (
       <div>
         <form>
-          <textarea />
-          <label>What goin' on?</label>
-          <button>Publish</button>
+          <div className="mdl-textfield mdl-js-textfield">
+            <textarea className="mdl-textfield__input" />
+            <label className="mdl-textfield__label">What goin' on?</label>
+          </div>
+          <button className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+            <i className="material-icons">add</i>
+          </button>
         </form>
       </div>
     );
