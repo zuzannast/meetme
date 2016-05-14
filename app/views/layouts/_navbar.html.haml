@@ -1,7 +1,22 @@
-%ul
-  %li= link_to 'MeetMe', root_path
-  - if user_signed_in?
-    %li= link_to 'My profile', user_profile_path(current_user)
-    %li= link_to 'Log out', destroy_user_session_path
-  - else
-    %li= link_to 'Log in', new_user_session_path
+.layout-transparent.mdl-layout.mdl-js-layout
+  %header.mdl-layout__header.mdl-layout__header--transparent
+    .mdl-layout__header-row
+      / Title
+      %span.mdl-layout-title MeetMe
+      / Add spacer, to align navigation to the right
+      .mdl-layout-spacer
+      / Navigation
+      %nav.mdl-navigation
+        .mdl-navigation__link= link_to 'MeetMe', root_path
+        .mdl-navigation__link= link_to 'MeetMe', root_path
+        .mdl-navigation__link= link_to 'MeetMe', root_path
+
+  .mdl-layout__drawer
+    %span.mdl-layout-title MeetMe
+    %nav.mdl-navigation
+      - if user_signed_in?
+        %li.mdl-navigation__link= link_to 'My profile', user_profile_path(current_user)
+        %li.mdl-navigation__link= link_to 'Log out', destroy_user_session_path
+      - else
+        %li.mdl-navigation__link= link_to 'Log in', new_user_session_path
+  %main.mdl-layout__content
