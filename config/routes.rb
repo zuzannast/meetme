@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :admins, only: :index
   resources :users do
     get '/profile', to: 'users#show'
+    post '/profile', to: 'user#update'
   end
-  
+
   resources :events
 
   root 'home#index'
