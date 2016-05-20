@@ -6,3 +6,6 @@ RWR.registerComponent('Main', Main);
 
 import EventBox from './components/event_box';
 RWR.registerComponent('EventBox', EventBox);
+
+import EventsList from './components/events_list';
+RWR.registerComponent('EventsList', EventsList);
