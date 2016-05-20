@@ -9,12 +9,23 @@ let mockEvents = [
 ]
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { eventsList: mockEvents };
+  }
+  addEvent(eventToAdd) {
+    let newEventsList = this.state.eventsList;
+    newEventsList.unshift({ id: Date.now, user: 'Guest', description: eventToAdd });
+
+    this.setState({ eventsList: newEventsList });
+  }
+
   render() {
     return (
       <div className=".mdl-layout__content">
       <h1>Hello from the React</h1>
-        <EventBox />
-        <EventsList events={mockEvents} />
+        <EventBox sendEvent={ this.addEvent.bind(this) } />
+        <EventsList events={ this.state.eventsList } />
       </div>
     );
   }
