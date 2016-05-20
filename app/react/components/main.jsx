@@ -2,20 +2,14 @@ import React from 'react';
 import EventBox from './event_box';
 import EventsList from './events_list';
 
-let mockEvents = [
-  { id: 1, user: 'Zuzia', description: 'My first event' },
-  { id: 2, user: 'Zuzia', description: 'My second event' },
-  { id: 3, user: 'Zuzia', description: 'My third event' },
-]
-
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { eventsList: mockEvents };
+    this.state = { eventsList: [] };
   }
   addEvent(eventToAdd) {
     let newEventsList = this.state.eventsList;
-    newEventsList.unshift({ id: Date.now, user: 'Guest', description: eventToAdd });
+    newEventsList.unshift({ id: Date.now(), user: 'Guest', description: eventToAdd });
 
     this.setState({ eventsList: newEventsList });
   }
