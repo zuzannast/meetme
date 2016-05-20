@@ -3,9 +3,9 @@ import EventBox from './event_box';
 import EventsList from './events_list';
 
 let mockEvents = [
-  { user: 'Zuzia', description: 'My first event' },
-  { user: 'Zuzia', description: 'My second event' },
-  { user: 'Zuzia', description: 'My third event' },
+  { id: 1, user: 'Zuzia', description: 'My first event' },
+  { id: 2, user: 'Zuzia', description: 'My second event' },
+  { id: 3, user: 'Zuzia', description: 'My third event' },
 ]
 
 class Main extends React.Component {
