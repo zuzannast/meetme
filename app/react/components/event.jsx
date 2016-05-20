@@ -6,10 +6,9 @@ export default class Event extends React.Component {
       <li className="mdl-list__item mdl-list__item--three-line">
         <span className="mdl-list__item-primary-content">
           <i className="material-icons mdl-list__item-avatar">person</i>
-          <span>Bryan Cranston</span>
+          <span>{ this.props.user }</span>
           <span className="mdl-list__item-text-body">
-            Bryan Cranston played the role of Walter in Breaking Bad. He is also known
-            for playing Hal in Malcom in the Middle.
+            { this.props.description }
           </span>
         </span>
       </li>
