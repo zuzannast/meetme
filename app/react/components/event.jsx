@@ -11,6 +11,9 @@ export default class Event extends React.Component {
             { this.props.description }
           </span>
         </span>
+        <span className="mdl-list__item-secondary-content">
+          <span className="mdl-list__item-secondary-info">{this.props.formattedDate}</span>
+        </span>
       </li>
     );
   }

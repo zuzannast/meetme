@@ -7,19 +7,30 @@ class Main extends React.Component {
     super(props);
     this.state = { eventsList: [] };
   }
+
+  formattedEvents(eventsList) {
+    let formattedEvents = eventsList.map(event => {
+      event.formattedDate = moment(event.created_at).fromNow();
+      return event;
+    });
+    return {
+      eventsList: eventsList
+    };
+  }
+
   addEvent(eventToAdd) {
     $.post("/events", { description: eventToAdd })
     .success( savedEvent => {
       let newEventsList = this.state.eventsList;
       newEventsList.unshift(savedEvent);
-      this.setState({ eventsList: newEventsList });
+      this.setState(this.formattedEvents(newEventsList));
     })
     .error(error => console.log(error))
   }
 
   componentDidMount() {
     $.ajax("/events")
-    .success(data => this.setState({ eventsList: data }))
+    .success(data => this.setState(this.formattedEvents(data)))
     .error(error => console.log(error))
   }
 
