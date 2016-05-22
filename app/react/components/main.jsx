@@ -8,10 +8,19 @@ class Main extends React.Component {
     this.state = { eventsList: [] };
   }
   addEvent(eventToAdd) {
-    let newEventsList = this.state.eventsList;
-    newEventsList.unshift({ id: Date.now(), user: 'Guest', description: eventToAdd });
+    $.post("/events", { description: eventToAdd })
+    .success( savedEvent => {
+      let newEventsList = this.state.eventsList;
+      newEventsList.unshift(savedEvent);
+      this.setState({ eventsList: newEventsList });
+    })
+    .error(error => console.log(error))
+  }
 
-    this.setState({ eventsList: newEventsList });
+  componentDidMount() {
+    $.ajax("/events")
+    .success(data => this.setState({ eventsList: data }))
+    .error(error => console.log(error))
   }
 
   render() {

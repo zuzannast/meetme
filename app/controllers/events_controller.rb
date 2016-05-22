@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   end
 
   def index
+    render json: Event.all
   end
 
   def new
@@ -15,13 +16,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-
-    if @event.save
-      redirect_to event_path(@event)
-    else
-      render :new
-    end
+    event = Event.create(description: params[:description], organiser_id: current_user.id)
+    render json: event
   end
 
   def edit
