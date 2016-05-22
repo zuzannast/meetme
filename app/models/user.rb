@@ -3,5 +3,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
  has_many :events, through: :events_users
- has_one :city
+ belongs_to :city
 end
