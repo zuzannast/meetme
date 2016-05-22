@@ -12,10 +12,12 @@
         .mdl-navigation__link= link_to 'MeetMe', root_path
 
   .mdl-layout__drawer
-    %span.mdl-layout-title MeetMe
-    %nav.mdl-navigation
-      - if user_signed_in?
-        %li.mdl-navigation__link= link_to 'My profile', user_profile_path(current_user)
+    - if user_signed_in?
+      %span.mdl-layout-title= user.display_name
+      %nav.mdl-navigation
+        %li.mdl-navigation__link= link_to 'My profile', user_profile_path(user)
         %li.mdl-navigation__link= link_to 'Log out', destroy_user_session_path, method: :delete
-      - else
-        %li.mdl-navigation__link= link_to 'Log in', new_user_session_path
+    - else
+      %span.mdl-layout-title Join MeetMe
+      %li.mdl-navigation__link= link_to 'Log in', new_user_session_path
+      %li.mdl-navigation__link= link_to 'Sign in', new_user_path
