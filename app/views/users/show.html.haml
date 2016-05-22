@@ -14,4 +14,4 @@
 
 %h4
   City
-  %p=user.try(:city)
+  %p=user.try(:city).try(:name)

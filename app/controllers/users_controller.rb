@@ -12,12 +12,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find(current_user.id)
+    user.update(user_params)
+    redirect_to user_profile_path(user)
+  end
 
-    if user.save
-      redirect_to user_profile_path(user)
-    else
-      render :edit
-    end
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :city_id)
   end
 end
