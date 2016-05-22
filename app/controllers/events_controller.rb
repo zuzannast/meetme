@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    render json: Event.all
+    render json: Event.order(created_at: :desc).all
   end
 
   def new
