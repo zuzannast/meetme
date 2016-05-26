@@ -31,7 +31,7 @@ export default class Follow extends React.Component {
   render() {
     let users = this.state.users.map( user => {
       return(
-        <li className="mdl-list__item mdl-list__item--two-line">
+        <li key={user.id} className="mdl-list__item mdl-list__item--two-line">
           <span className="mdl-list__item-primary-content">
             <img className="mdl-list__item-avatar" src={ user.gravatar }/>
             <span>{ user.name }</span>

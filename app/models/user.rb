@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
  belongs_to :city
 
  def as_json(options={})
-   { name: self.decorate.display_name, gravatar: self.decorate.gravatar }
+   { id: id, name: self.decorate.display_name, gravatar: self.decorate.gravatar }
  end
 end
