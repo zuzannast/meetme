@@ -13,5 +13,11 @@ export default {
       actionType: ActionTypes.RECEIVED_ONE_EVENT,
       rawEvent
     })
+  },
+  receivedUsers(rawUsers) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.RECEIVED_USERS,
+      rawUsers
+    })
   }
 }

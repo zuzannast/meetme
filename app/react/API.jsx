@@ -10,5 +10,10 @@ export default {
     $.post("/events", { description })
     .success( rawEvent => ServerActions.receivedOneEvent(rawEvent))
     .error(error => console.log(error));
+  },
+  getAllUsers() {
+    $.get("/followers/random")
+    .success( rawUsers => ServerActions.receivedUsers(rawUsers))
+    .error(error => console.log(error));
   }
 }
