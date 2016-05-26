@@ -15,7 +15,6 @@ class Event < ActiveRecord::Base
   end
 
   def gravatar
-    hash = Digest::MD5.hexdigest(organiser.email)
-    "http://www.gravatar.com/avatar/#{hash}"
+    organiser.gravatar
   end
 end
