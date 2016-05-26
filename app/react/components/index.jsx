@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import EventBox from './event_box';
 import EventsList from './events_list';
 import EventStore from "../stores/event_store";
 
@@ -33,7 +32,6 @@ export default class Index extends React.Component {
   render() {
     return (
       <div className=".mdl-layout__content">
-        <EventBox />
         <div className="demo-list-three">
           <Link to="/follow" className="follow-link">Who to follow?</Link>
         </div>

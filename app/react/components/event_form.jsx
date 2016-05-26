@@ -1,7 +1,7 @@
 import React from 'react';
 import EventActions from '../actions/event_actions';
 
-export default class EventBox extends React.Component {
+export default class EventForm extends React.Component {
   sendEvent(event) {
     event.preventDefault();
     EventActions.sendEvent(this.refs.eventTextArea.value);
