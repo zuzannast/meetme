@@ -9,7 +9,7 @@ export default class EventBox extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="demo-list-three">
         <form onSubmit={this.sendEvent.bind(this)}>
           <div className="mdl-textfield mdl-js-textfield">
             <textarea ref="eventTextArea" className="mdl-textfield__input" />
