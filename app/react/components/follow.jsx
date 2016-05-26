@@ -28,6 +28,14 @@ export default class Follow extends React.Component {
     this.setState(getAppState());
   }
 
+  followUser(userId) {
+    UserActions.followUser(userId);
+  }
+
+  followClasses(following) {
+    return "mdl-list__item-secondary-content " + (following ? "pink" : "grey");
+  }
+
   render() {
     let users = this.state.users.map( user => {
       return(
@@ -36,6 +44,9 @@ export default class Follow extends React.Component {
             <img className="mdl-list__item-avatar" src={ user.gravatar }/>
             <span>{ user.name }</span>
           </span>
+          <a className={this.followClasses(user.following)} onClick={this.followUser.bind(this, user.id)}>
+            <i className="material-icons">person_pin</i>
+          </a>
         </li>
       )
     });
