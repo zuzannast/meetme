@@ -1,9 +1,10 @@
 import React from 'react';
+import EventActions from '../actions/event_actions';
 
 export default class EventBox extends React.Component {
   sendEvent(event) {
     event.preventDefault();
-    this.props.sendEvent(this.refs.eventTextArea.value);
+    EventActions.sendEvent(this.refs.eventTextArea.value);
     this.refs.eventTextArea.value = '';
   }
   render() {

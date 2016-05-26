@@ -1,43 +1,39 @@
 import React from 'react';
 import EventBox from './event_box';
 import EventsList from './events_list';
+import EventStore from "../stores/event_store";
+
+import EventActions from '../actions/event_actions';
+EventActions.getAllEvents();
+
+
+let getAppState = () => {
+  return { eventsList: EventStore.getAll() };
+}
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { eventsList: [] };
-  }
-
-  formattedEvents(eventsList) {
-    let formattedEvents = eventsList.map(event => {
-      event.formattedDate = moment(event.created_at).fromNow();
-      return event;
-    });
-    return {
-      eventsList: eventsList
-    };
-  }
-
-  addEvent(eventToAdd) {
-    $.post("/events", { description: eventToAdd })
-    .success( savedEvent => {
-      let newEventsList = this.state.eventsList;
-      newEventsList.unshift(savedEvent);
-      this.setState(this.formattedEvents(newEventsList));
-    })
-    .error(error => console.log(error))
+    this.state = getAppState();
+    this._onChange = this._onChange.bind(this);
   }
 
   componentDidMount() {
-    $.ajax("/events")
-    .success(data => this.setState(this.formattedEvents(data)))
-    .error(error => console.log(error))
+    EventStore.addChangeListener(this._onChange);
+  }
+
+  componentWillUnMount() {
+    EventStore.removeChangeListener(this._onChange);
+  }
+
+  _onChange() {
+    this.setState(getAppState());
   }
 
   render() {
     return (
       <div className=".mdl-layout__content">
-        <EventBox sendEvent={ this.addEvent.bind(this) } />
+        <EventBox />
         <EventsList events={ this.state.eventsList } />
       </div>
     );
