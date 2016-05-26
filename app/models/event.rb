@@ -18,4 +18,11 @@ class Event < ActiveRecord::Base
   def gravatar
     organiser.gravatar
   end
+
+  def self.stream_for(current_user_id)
+    includes(:users)
+    .where(["organiser_id != :current_user_id", { current_user_id: current_user_id }])
+    .order(created_at: :desc)
+    .all
+  end
 end

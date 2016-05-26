@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    render json: Event.order(created_at: :desc).all
+    render json: Event.stream_for(current_user.id)
   end
 
   def new
