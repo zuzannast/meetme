@@ -1,11 +1,11 @@
 import RWR from 'react-webpack-rails';
+import RWRReactRouter from 'rwr-react-router';
+import { integrationsManager } from 'react-webpack-rails';
+integrationsManager.register('react-router', RWRReactRouter.integrationWrapper);
 RWR.run();
 
 import App from './components/app';
 RWR.registerComponent('App', App);
-
-import Main from './components/main';
-RWR.registerComponent('Main', Main);
 
 import Index from './components/index';
 RWR.registerComponent('Index', Index);
@@ -21,3 +21,6 @@ RWR.registerComponent('Event', Event);
 
 import Follow from './components/follow';
 RWR.registerComponent('Follow', Follow);
+
+import Main from './components/main';
+RWRReactRouter.register('Main', Main);
