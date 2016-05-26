@@ -1,12 +1,11 @@
 import React from 'react';
-import {  Link } from 'react-router';
+import { Link } from 'react-router';
 import UserStore from '../stores/user_store';
 import UserActions from '../actions/user_actions'
 
 let getAppState = () => {
   return { users: UserStore.getAll() };
 };
-
 
 export default class Follow extends React.Component {
   constructor(props) {

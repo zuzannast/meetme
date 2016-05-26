@@ -26,7 +26,7 @@ export default {
     .success( rawComments => ServerActions.receivedComments(rawComments))
     .error(error => console.log(error));
   },
-  createComment(description) {
+  createComment(body) {
     $.post("/comments", { body })
     .success( rawComment => ServerActions.receivedOneComment(rawComment))
     .error(error => console.log(error));

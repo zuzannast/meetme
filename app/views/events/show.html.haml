@@ -1,12 +1,2 @@
-%h1
-  About event
-%h4
-  Description
-  %p= event.try(:desription)
-%h4
-  Date
-  %p= event.try(:date)
-
-%h4
-  City
-  %p=event.try(:city)
+#react
+= react_component('EventBox', {}, { prerender: true }) 
