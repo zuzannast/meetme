@@ -16,7 +16,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.create(description: params[:description], organiser_id: current_user.id)
+    event = Event.new(description: params[:description], organiser_id: current_user.id)
+    event.users << current_user
+    event.save
+    
     render json: event
   end
 
