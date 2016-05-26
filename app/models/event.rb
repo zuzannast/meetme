@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   has_many :users, through: :events_users
+  has_many :events_users
   has_one :showtime
 
   def as_json(options={})

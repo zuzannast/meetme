@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
  has_many :events, through: :events_users
+ has_many :events_users
  belongs_to :city
 
  def as_json(options={})
