@@ -5,7 +5,6 @@ import EventsList from './events_list';
 import EventStore from "../stores/event_store";
 
 import EventActions from '../actions/event_actions';
-EventActions.getAllEvents();
 
 let getAppState = () => {
   return { eventsList: EventStore.getAll() };
@@ -19,6 +18,7 @@ export default class Index extends React.Component {
   }
 
   componentDidMount() {
+    EventActions.getAllEvents();
     EventStore.addChangeListener(this._onChange);
   }
 
