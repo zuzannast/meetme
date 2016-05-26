@@ -21,4 +21,14 @@ export default {
     .success( rawFollower => ServerActions.receivedOneFollower(rawFollower))
     .error(error => console.log(error));
   },
+  getAllComments() {
+    $.get("/comments")
+    .success( rawComments => ServerActions.receivedComments(rawComments))
+    .error(error => console.log(error));
+  },
+  createComment(description) {
+    $.post("/comments", { body })
+    .success( rawComment => ServerActions.receivedOneComment(rawComment))
+    .error(error => console.log(error));
+  },
 }

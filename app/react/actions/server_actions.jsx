@@ -26,4 +26,16 @@ export default {
       rawFollower
     })
   },
+  receivedComments(rawComments) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.RECEIVED_COMMENTS,
+      rawComments
+    })
+  },
+  receivedOneComment(rawComment) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.RECEIVED_ONE_COMMENT,
+      rawComment
+    })
+  },
 }
