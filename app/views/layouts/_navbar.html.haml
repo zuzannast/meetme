@@ -19,5 +19,6 @@
         %li.mdl-navigation__link= link_to 'Log out', destroy_user_session_path, method: :delete
     - else
       %span.mdl-layout-title Join MeetMe
-      %li.mdl-navigation__link= link_to 'Log in', new_user_session_path
-      %li.mdl-navigation__link= link_to 'Sign in', new_user_path
+      %nav.mdl-navigation
+        %li.mdl-navigation__link= link_to 'Log in', new_user_session_path
+        %li.mdl-navigation__link= link_to 'Sign in', new_user_registration_path
