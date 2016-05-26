@@ -12,3 +12,6 @@ RWR.registerComponent('EventsList', EventsList);
 
 import Event from './components/event';
 RWR.registerComponent('Event', Event);
+
+import Index from './components/index';
+RWR.registerComponent('Index', Index);

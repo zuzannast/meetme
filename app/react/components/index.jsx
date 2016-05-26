@@ -9,9 +9,9 @@ EventActions.getAllEvents();
 
 let getAppState = () => {
   return { eventsList: EventStore.getAll() };
-}
+};
 
-class Main extends React.Component {
+export default class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = getAppState();
@@ -39,5 +39,3 @@ class Main extends React.Component {
     );
   }
 }
-
-export default Main;
