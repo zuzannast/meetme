@@ -1,26 +1,15 @@
-import AppDispatcher from "../dispatcher";
-import ActionTypes from "../constants";
-import { EventEmitter } from "events";
+import AppDispatcher from '../dispatcher';
+import ActionTypes from '../constants';
+import AppEventEmitter from './app_event_emitter';
 
 let _events = [];
-const CHANGE_EVENT = "CHANGE";
 
-class EventEventEmitter extends EventEmitter {
+class EventEventEmitter extends AppEventEmitter {
   getAll() {
     return _events.map(event => {
       event.formattedDate = moment(event.created_at).fromNow();
       return event;
     });
-  }
-
-  emitChange(){
-    this.emit(CHANGE_EVENT);
-  }
-  addChangeListener(callback){
-    this.on(CHANGE_EVENT, callback);
-  }
-  removeChangeListener(callback){
-    this.removeLister(CHANGE_EVENT, callback);
   }
 }
 
