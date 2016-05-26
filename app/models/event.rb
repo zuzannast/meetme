@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   has_many :users, through: :events_users
   has_many :events_users
   has_one :showtime
+  has_many :comments
 
   def as_json(options={})
     super(methods: [:organiser_name, :gravatar])

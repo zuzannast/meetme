@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
  has_many :events, through: :events_users
  has_many :events_users
  belongs_to :city
+ has_many :comments
 
  def as_json(options={})
    { id: id, name: self.decorate.display_name, gravatar: self.decorate.gravatar }
