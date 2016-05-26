@@ -5,5 +5,10 @@ export default {
     $.get("/events")
     .success( rawEvents => ServerActions.receivedEvents(rawEvents))
     .error(error => console.log(error));
+  },
+  createEvent(description) {
+    $.post("/events", { description })
+    .success( rawEvent => ServerActions.receivedOneEvent(rawEvent))
+    .error(error => console.log(error));
   }
 }
