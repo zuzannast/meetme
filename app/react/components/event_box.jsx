@@ -1,25 +1,38 @@
 import React from 'react';
 import EventStore from '../stores/event_store';
+import CommentStore from '../stores/comment_store';
 import EventActions from '../actions/event_actions';
+import CommentActions from '../actions/comment_actions';
+import CommentsList from './comments_list';
+import CommentBox from './comment_box'
 
 let getAppState = (eventId) => {
-  return { event: EventStore.getOne(eventId) };
+  return {
+    event: EventStore.getOne(eventId),
+    comments: CommentStore.getAll(eventId)
+  };
 };
 
 export default class EventBox extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { event: EventStore.getOne(this.props.params.eventId) }
+    this.state = {
+                    event: EventStore.getOne(this.props.params.eventId),
+                    comments: CommentStore.getAll(this.props.params.eventId)
+                  }
     this._onChange = this._onChange.bind(this);
   }
 
   componentDidMount() {
     EventActions.getOneEvent(this.props.params.eventId);
+    CommentActions.getAllComments(this.props.params.eventId);
+    EventStore.addChangeListener(this._onChange);
+    CommentStore.addChangeListener(this._onChange);
   }
 
   componentWillUnMount() {
     EventStore.removeChangeListener(this._onChange);
-    EventStore.addChangeListener(this._onChange);
+    CommentStore.removeChangeListener(this._onChange);
   }
 
   _onChange() {
@@ -50,6 +63,12 @@ export default class EventBox extends React.Component {
               <i className="material-icons">share</i>
             </button>
           </div>
+        </div>
+
+        <CommentBox event_id={ this.state.event.id } />
+
+        <div className="demo-list-three">
+          <CommentsList comments={ this.state.comments } />
         </div>
       </div>
     );
