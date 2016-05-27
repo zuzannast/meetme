@@ -1,0 +1,18 @@
+.events__event-box {
+  width: 650px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-card-wide.mdl-card {
+  width: 650px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 300px;
+  background: url('flat_theater.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}

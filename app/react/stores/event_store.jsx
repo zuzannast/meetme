@@ -11,6 +11,14 @@ class EventEventEmitter extends AppEventEmitter {
       return event;
     });
   }
+
+  getOne(eventId) {
+    return _events.map(event => {
+      if (event.id === parseInt(eventId))
+        return event;
+      }
+    ).filter( function(n){ return n != undefined })[0]
+  }
 }
 
 let EventStore = new EventEventEmitter();
