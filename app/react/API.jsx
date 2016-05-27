@@ -26,13 +26,13 @@ export default {
     .success( rawFollower => ServerActions.receivedOneFollower(rawFollower))
     .error(error => console.log(error));
   },
-  getAllComments() {
-    $.get("/comments")
+  getAllComments(eventId) {
+    $.get("/comments", { event_id: eventId })
     .success( rawComments => ServerActions.receivedComments(rawComments))
     .error(error => console.log(error));
   },
-  createComment(body) {
-    $.post("/comments", { body })
+  createComment(body, eventId) {
+    $.post("/comments", { body, eventId })
     .success( rawComment => ServerActions.receivedOneComment(rawComment))
     .error(error => console.log(error));
   },

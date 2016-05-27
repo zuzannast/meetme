@@ -4,7 +4,7 @@ import CommentActions from '../actions/comment_actions';
 export default class CommentBox extends React.Component {
   sendComment(comment) {
     comment.preventDefault();
-    CommentActions.sendComment(this.refs.commentTextArea.value);
+    CommentActions.sendComment(this.refs.commentTextArea.value, this.props.event_id);
     this.refs.commentTextArea.value = '';
   }
   render() {
@@ -13,7 +13,7 @@ export default class CommentBox extends React.Component {
         <form onSubmit={this.sendComment.bind(this)}>
           <div className="mdl-textfield mdl-js-textfield">
             <textarea ref="commentTextArea" className="mdl-textfield__input" />
-            <label className="mdl-textfield__label">Want to add something?</label>
+            <label className="mdl-textfield__label">Want to post a comment?</label>
           </div>
           <button type="submit" className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
             <i className="material-icons">add</i>

@@ -1,10 +1,10 @@
 import API from "../API"
 
 export default {
-  getAllComments() {
-    API.getAllComments();
+  getAllComments(eventId) {
+    API.getAllComments(eventId);
   },
-  sendComment(body) {
-    API.createComment(body);
+  sendComment(body, eventId) {
+    API.createComment(body, eventId);
   }
 }

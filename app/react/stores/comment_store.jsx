@@ -1,12 +1,12 @@
 import AppDispatcher from '../dispatcher';
 import ActionTypes from '../constants';
-import AppCommentEmitter from './app_event_emitter';
+import AppEventEmitter from './app_event_emitter';
 
 let _comments = [];
 
 class CommentEventEmitter extends AppEventEmitter {
-  getAll() {
-    return _events.map(comment => {
+  getAll(eventId) {
+    return _comments.map(comment => {
       comment.formattedDate = moment(comment.created_at).fromNow();
       return comment;
     });
