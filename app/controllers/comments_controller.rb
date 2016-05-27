@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  
+
   def index
-    render json: Comment.all.order(created_at: :desc)
+    render json: Comment.stream_for(params[:event_id])
   end
 
   def new
@@ -9,7 +9,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment = Comment.create(description: params[:description], user_id: current_user.id)
+    comment = Comment.create(body: params[:body],
+                             event_id: params[:eventId],
+                             user_id: current_user.id
+                             )
     render json: comment
   end
 end

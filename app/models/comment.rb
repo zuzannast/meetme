@@ -13,4 +13,10 @@ class Comment < ActiveRecord::Base
   def gravatar
     user.decorate.gravatar
   end
+
+  def self.stream_for(event_id)
+    where(event_id: event_id)
+    .all
+    .order(created_at: :desc)
+  end
 end
