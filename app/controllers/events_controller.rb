@@ -17,10 +17,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.new(description: params[:description], organiser_id: current_user.id)
+    event = Event.new(title: params[:title],
+                      description: params[:description],
+                      organiser_id: current_user.id
+                      )
     event.users << current_user
     event.save
-    
+
     render json: event
   end
 
@@ -43,6 +46,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:description, :date, :showtime_id)
+    params.require(:event).permit(:title, :description, :date, :showtime_id)
   end
 end

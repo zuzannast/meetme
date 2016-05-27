@@ -1,15 +1,19 @@
 class Event < ActiveRecord::Base
   has_many :users, through: :events_users
   has_many :events_users
-  has_one :showtime
+  has_one  :showtime
   has_many :comments
 
   def as_json(options={})
-    super(methods: [:organiser_name, :gravatar])
+    super(methods: [:organiser_name, :gravatar, :event_path, :formatted_date])
   end
 
   def organiser
     User.find(organiser_id).decorate
+  end
+
+  def formatted_date
+    self.decorate.formatted_date
   end
 
   def organiser_name
@@ -18,6 +22,10 @@ class Event < ActiveRecord::Base
 
   def gravatar
     organiser.gravatar
+  end
+
+  def event_path
+    "/events/#{id}"
   end
 
   def self.stream_for(current_user_id)
