@@ -1,4 +1,5 @@
 import React from 'react';
+import { render } from 'react'
 import { Router, Route, Link, browserHistory } from 'react-router';
 
 import App from './app';
@@ -17,3 +18,6 @@ let Main =
   </Router>
 
 export default Main;
+
+var element = document.getElementById('react');
+renderRouter('Main', element);
