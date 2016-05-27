@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   expose(:showtimes) { showtimes_for_select }
 
   def show
+    render json: Event.find(params[:id])
   end
 
   def index
