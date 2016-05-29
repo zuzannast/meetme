@@ -3,7 +3,9 @@
   %head
     %title Meetme
     = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag    'mdDateTimePicker.css'
     = javascript_include_tag 'application'
+    = javascript_include_tag 'mdDateTimePicker.min.js'
     = csrf_meta_tags
   %body
     = render 'layouts/react_hot_assets'

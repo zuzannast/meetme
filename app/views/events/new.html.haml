@@ -12,9 +12,11 @@
           .mdl-textfield__label Description
         .mdl-selectfield
           = f.select :showtime_id, showtimes_for_select, class: "browser-default", prompt: "Select showtime"
-        -# .mdl-textfield
-        -#   = f.datetime_select :date
-        -#   .mdl-textfield__label Date
+        .mddtpp-p
+          .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.hidden#date-field
+            = f.text_field :date, class: "mdl-textfield__input", id: "datetime-input"
+        .mdl-button.mdl-button--colored
+          = link_to "Pick a date", "#", id: "datetime-select"
 
         .mdl-card__actions.mdl-card--border
-          = f.submit 'Publish', class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+          = f.submit 'Publish', class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect form-submit-button"
