@@ -2,12 +2,12 @@
   %header.mdl-layout__header.mdl-layout__header--transparent
     .mdl-layout__header-row
       / Title
-      %span.mdl-layout-title MeetMe
+      %span.mdl-layout-title= link_to 'MeetMe', root_path
       / Add spacer, to align navigation to the right
       .mdl-layout-spacer
       / Navigation
       %nav.mdl-navigation
-        .mdl-navigation__link= link_to 'MeetMe', root_path
+        .mdl-navigation__link.special-button= link_to 'ADD EVENT', new_event_path
         .mdl-navigation__link= link_to 'MeetMe', root_path
         .mdl-navigation__link= link_to 'MeetMe', root_path
 

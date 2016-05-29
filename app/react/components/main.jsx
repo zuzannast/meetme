@@ -18,6 +18,3 @@ let Main =
   </Router>
 
 export default Main;
-
-var element = document.getElementById('react');
-renderRouter('Main', element);
