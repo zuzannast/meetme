@@ -1,15 +1,20 @@
-= form_for(@event) do |f|
-  .field
-    = f.label :date
-    %br/
-    = f.datetime_select :date
-  .field
-    = f.label :description
-    %br/
-    = f.text_area :description
-  .field
-    = f.label :showtime_id
-    %br/
-    = f.select :showtime_id, showtimes_for_select
-  .actions
-    = f.submit
+.demo-list-three
+  .mdl-card.mdl-shadow--6dp
+    .mdl-card__title.mdl-color--primary.mdl-color-text--white
+      %h2.mdl-card__title-text Create Event
+    .mdl-card__supporting-text
+      = form_for(@event) do |f|
+        .mdl-textfield.mdl-js-textfield
+          = f.text_field :title, class: "textfield mdl-textfield__input"
+          .mdl-textfield__label Title
+        .mdl-textfield.mdl-js-textfield
+          = f.text_area :description, class: "mdl-textfield__input"
+          .mdl-textfield__label Description
+        .mdl-selectfield
+          = f.select :showtime_id, showtimes_for_select, class: "browser-default", prompt: "Select showtime"
+        -# .mdl-textfield
+        -#   = f.datetime_select :date
+        -#   .mdl-textfield__label Date
+
+        .mdl-card__actions.mdl-card--border
+          = f.submit 'Publish', class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"

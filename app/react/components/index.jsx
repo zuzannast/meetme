@@ -31,7 +31,7 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <div className=".mdl-layout__content">
+      <div>
         <div className="demo-list-three">
           <Link to="/follow" className="follow-link">Who to follow?</Link>
         </div>

@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   expose(:event) { Event.find(params[:id]) }
   expose(:events) { Event.all }
   expose(:showtimes) { showtimes_for_select }
+  expose_decorated(:user) { current_user }
 
   def show
     render json: Event.find(params[:id])
