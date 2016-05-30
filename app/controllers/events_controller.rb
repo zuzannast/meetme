@@ -24,8 +24,6 @@ class EventsController < ApplicationController
                       )
     event.users << current_user
     event.save
-
-    render json: event
   end
 
   def edit
