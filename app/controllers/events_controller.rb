@@ -18,12 +18,18 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.new(title: params[:title],
-                      description: params[:description],
-                      organiser_id: current_user.id
+    event = Event.new(title: event_params[:title],
+                      description: event_params[:description],
+                      date: event_params[:date].to_datetime,
+                      organiser_id: current_user.id,
+                      showtime_id: event_params[:showtime_id]
                       )
     event.users << current_user
-    event.save
+    if event.save
+      redirect_to events_path
+    else
+      render :new
+    end
   end
 
   def edit
