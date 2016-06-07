@@ -63,6 +63,9 @@ export default class EventBox extends React.Component {
             <Link to={ this.state.event.organiser.path } className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
               { this.state.event.organiser.name }
             </Link>
+            <Link to={ this.state.event.organiser.path } className="align-right mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              Count me in!
+            </Link>
           </div>
           <div className="mdl-card__menu">
             <button className="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
