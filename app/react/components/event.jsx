@@ -7,8 +7,8 @@ export default class Event extends React.Component {
       <Link to={ this.props.event_path }>
         <li className="mdl-list__item mdl-list__item--three-line">
           <span className="mdl-list__item-primary-content">
-            <img className="mdl-list__item-avatar" src={ this.props.gravatar }/>
-            <span>{ this.props.organiser_name }</span>
+            <img className="mdl-list__item-avatar" src={ this.props.organiser.gravatar }/>
+            <span>{ this.props.organiser.name }</span>
             <span className="mdl-list__item-text-body">
               { this.props.description }
             </span>

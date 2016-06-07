@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router';
+
 import EventStore from '../stores/event_store';
 import CommentStore from '../stores/comment_store';
 import EventActions from '../actions/event_actions';
@@ -51,12 +53,16 @@ export default class EventBox extends React.Component {
             </h2>
           </div>
           <div className="mdl-card__supporting-text">
-            { this.state.event.description }
+            <big> { this.state.event.showtime.movie.title } </big>
+            <br />
+            { this.state.event.showtime.theater.city.name }, { this.state.event.showtime.theater.name }
+            <br />
+            <i> { this.state.event.description } </i>
           </div>
           <div className="mdl-card__actions mdl-card--border">
-            <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-              { this.state.event.organiser_name }
-            </a>
+            <Link to={ this.state.event.organiser.path } className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              { this.state.event.organiser.name }
+            </Link>
           </div>
           <div className="mdl-card__menu">
             <button className="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
