@@ -32,9 +32,6 @@ export default class Index extends React.Component {
   render() {
     return (
       <div>
-        <div className="demo-list-three">
-          <Link to="/follow" className="follow-link">Who to follow?</Link>
-        </div>
         <EventsList events={ this.state.eventsList } />
       </div>
     );
