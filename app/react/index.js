@@ -11,9 +11,9 @@ import Event from './components/events/event';
 import EventBox from './components/events/event_box';
 import EventForm from './components/events/event_form';
 import EventsList from './components/events/events_list';
-import Comment from './components/comment';
-import CommentBox from './components/comment_box';
-import CommentsList from './components/comments_list';
+import Comment from './components/comments/comment';
+import CommentBox from './components/comments/comment_box';
+import CommentsList from './components/comments/comments_list';
 import Follow from './components/follow';
 
 RWRReactRouter.register('Main', Main);

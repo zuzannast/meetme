@@ -5,8 +5,8 @@ import EventStore from '../../stores/event_store';
 import CommentStore from '../../stores/comment_store';
 import EventActions from '../../actions/event_actions';
 import CommentActions from '../../actions/comment_actions';
-import CommentsList from '../comments_list';
-import CommentBox from '../comment_box'
+import CommentsList from '../comments/comments_list';
+import CommentBox from '../comments/comment_box'
 
 let getAppState = (eventId) => {
   return {

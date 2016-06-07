@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentActions from '../actions/comment_actions';
+import CommentActions from '../../actions/comment_actions';
 
 export default class CommentBox extends React.Component {
   sendComment(comment) {
