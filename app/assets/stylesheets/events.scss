@@ -1,16 +1,36 @@
-/* ==========  Select Field Variables ========== */
-$color-black: "0,0,0";
-$select-background-color: transparent;
-$select-border-color: unquote("rgba(#{$color-black}, 0.12)") !default;
-$select-font-size: 16px;
-$select-color: unquote("rgba(#{$color-black}, 0.26)") !default;
-$select-padding: 4px;
-
 .events__event-box {
   width: 650px;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.events-list {
+  list-style: none;
+  padding: 0;
+}
+
+.events__events-list {
+  width: 900px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.events__container-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.event__box-flex {
+  width: 25%;
+  padding: 15px;
+}
+
+.events__event-box-theater {
+  color: rgba(255, 255, 255, 0.6);
+  padding: 10px 20px 10px 20px;
 }
 
 .demo-card-wide.mdl-card {
@@ -23,10 +43,6 @@ $select-padding: 4px;
 }
 .demo-card-wide > .mdl-card__menu {
   color: #fff;
-}
-
-.events-list {
-  width: 650px;
 }
 
 .box-centered {
@@ -48,39 +64,32 @@ $select-padding: 4px;
   .form-submit-button {
     float: right;
   }
+}
 
-  /* Hide label */
-  .mdl-selectfield label {display: none;}
-  /* Use custom arrow */
-  .mdl-selectfield select {appearance: none}
-  .mdl-selectfield {
-    font-family: 'Roboto','Helvetica','Arial',sans-serif;
-    position: relative;
-      &:after {
-        position: absolute;
-        top: 0.75em;
-        right: 0.5em;
-        /* Styling the down arrow */
-        width: 0;
-        height: 0;
-        padding: 0;
-        content: '';
-        border-left: .25em solid transparent;
-        border-right: .25em solid transparent;
-        border-top: .375em solid $select-border-color;
-        pointer-events: none;
-    }
-  }
-
-  /* Style Select Field */
-  select {
-    font-family: inherit;
-    background-color: transparent;
-    width: 100%;
-    padding: $select-padding 0;
-    font-size: $select-font-size;
-    color: $select-color;
-    border: none;
-    border-bottom: 1px solid $select-border-color;
-  }
+.demo-card-event.mdl-card {
+  width: 256px;
+  height: 256px;
+  background: #3E4EB8;
+}
+.demo-card-event > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.demo-card-event > .mdl-card__title {
+  align-items: flex-start;
+}
+.demo-card-event > .mdl-card__title > h4 {
+  margin-top: 0;
+}
+.demo-card-event > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.demo-card-event > .mdl-card__actions > .material-icons {
+  padding-right: 10px;
+}
+.demo-card-event > .mdl-card__title,
+.demo-card-event > .mdl-card__actions,
+.demo-card-event > .mdl-card__actions > .mdl-button {
+  color: #fff;
 }
