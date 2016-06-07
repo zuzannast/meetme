@@ -1,5 +1,5 @@
 import React from 'react';
-import EventActions from '../actions/event_actions';
+import EventActions from '../../actions/event_actions';
 
 export default class EventForm extends React.Component {
   sendEvent(event) {

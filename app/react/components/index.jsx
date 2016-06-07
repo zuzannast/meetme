@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import EventsList from './events_list';
+import EventsList from './events/events_list';
 import EventStore from "../stores/event_store";
 
 import EventActions from '../actions/event_actions';

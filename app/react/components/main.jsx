@@ -4,8 +4,8 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 
 import App from './app';
 import Index from './index';
-import EventBox from './event_box';
-import Event from './event';
+import EventBox from './events/event_box';
+import Event from './events/event';
 import Follow from './follow';
 
 let Main =
