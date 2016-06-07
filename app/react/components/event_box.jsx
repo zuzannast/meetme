@@ -54,9 +54,9 @@ export default class EventBox extends React.Component {
           </div>
           <div className="mdl-card__supporting-text">
             <big> { this.state.event.showtime.movie.title } </big>
-            <br />
-            { this.state.event.showtime.theater.city.name }, { this.state.event.showtime.theater.name }
-            <br />
+            <div>
+              { this.state.event.showtime.theater.city.name }, { this.state.event.showtime.theater.name }
+            </div>
             <i> { this.state.event.description } </i>
           </div>
           <div className="mdl-card__actions mdl-card--border">
