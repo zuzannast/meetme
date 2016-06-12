@@ -15,9 +15,10 @@ module MovieScraper
 
       results = []
       html.css('#movie_results .theater').each do |div|
-          movies = []
           name = div.css('h2 a').text.empty? ? div.css('h2').text : div.css('h2 a').text
+          next if div.css('.closure').text == 'Not showing movies'
 
+          movies = []
           theater = MovieScraper::Models::Theater.new(name, city_name).to_h
 
           div.css('.movie').each do |movie|
@@ -32,7 +33,7 @@ module MovieScraper
               showtimes = times.split(" ")
               info = movie.css('.info').text.split(" - ")
 
-              movie_result = MovieScraper::Models::Movie.new(title, showtimes, theater["name"], info).to_h
+              movie_result = MovieScraper::Models::Movie.new(title, showtimes, theater['name'], info).to_h
               movies.push(movie_result)
           end
           results.push(theater)
