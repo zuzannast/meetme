@@ -30,3 +30,8 @@ rake db:seed
 ```ruby
 rake scraper:scrap_showtimes
 ```
+
+## Dependencies
+For React and Webpack, MeetMe is using Netguru's gem:
+[`react_webpack_with_rails`](https://github.com/netguru/react_webpack_rails)
+I suggest to follow it's [development environment](https://github.com/netguru/react_webpack_rails) instructions.
