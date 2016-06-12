@@ -2,6 +2,8 @@ class Comment < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
 
+  validates :body, :user_id, :event_id, presence: true
+
   def as_json(options={})
     super(methods: [:name, :gravatar])
   end

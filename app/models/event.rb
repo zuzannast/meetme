@@ -4,6 +4,8 @@ class Event < ActiveRecord::Base
   has_one  :showtime
   has_many :comments
 
+  validates :date, :description, :title, :organiser_id, :showtime_id, presence: true
+
   def as_json(options={})
     super(methods: [:organiser, :event_path, :formatted_date, :showtime])
   end
