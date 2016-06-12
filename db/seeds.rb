@@ -38,11 +38,11 @@ movies = Movie.create([
 ])
 
 showtimes = Showtime.create([
-  { time: '20:00', theater_id: Theater.first, movie_id: Movie.first },
-  { time: '19:00', theater_id: Theater.last, movie_id: Movie.last },
-  { time: '18:00', theater_id: Theater.first, movie_id: Movie.first },
-  { time: '17:00', theater_id: Theater.last, movie_id: Movie.last },
-  { time: '17:00', theater_id: Theater.first, movie_id: Movie.last },
+  { time: '20:00', theater: Theater.first, movie: Movie.first },
+  { time: '19:00', theater: Theater.last, movie: Movie.last },
+  { time: '18:00', theater: Theater.first, movie: Movie.first },
+  { time: '17:00', theater: Theater.last, movie: Movie.last },
+  { time: '17:00', theater: Theater.first, movie: Movie.last },
 ])
 
 ### Events
