@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
- has_many :events, through: :events_users
- has_many :events_users
+ has_many :events, through: :participants
+ has_many :participants
  belongs_to :city
  has_many :comments
 
