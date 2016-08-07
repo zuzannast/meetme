@@ -13,6 +13,8 @@ export default class Event extends React.Component {
                 { this.props.showtime.time }
               </h4>
             </div>
+          </Link>
+          <Link to={ this.props.showtime.theater.path }>
             <div className="events__event-box-theater">
               { this.props.showtime.theater.city.name }, { this.props.showtime.theater.name }
             </div>
