@@ -24,8 +24,9 @@
 }
 
 .event__box-flex {
-  width: 25%;
   padding: 15px;
+  width: 256px;
+  height: 256px;
 }
 
 .events__event-box-theater {
@@ -37,7 +38,6 @@
   width: 650px;
 }
 .demo-card-wide > .mdl-card__title {
-  color: #fff;
   height: 300px;
   background: url('flat_theater.jpg') center / cover;
 }
@@ -64,6 +64,10 @@
   .form-submit-button {
     float: right;
   }
+}
+
+.mdl-card__title {
+  color: #fff;
 }
 
 .demo-card-event.mdl-card {

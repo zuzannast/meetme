@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   validates :date, :description, :title, :organiser_id, :showtime_id, presence: true
 
   def as_json(options={})
-    super(methods: [:organiser, :event_path, :formatted_date, :showtime])
+    super(methods: [:organiser, :event_path, :formatted_date, :showtime, :participants])
   end
 
   def organiser

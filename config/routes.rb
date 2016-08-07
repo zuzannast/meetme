@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :participants
+
   get 'react_examples/component', to: 'react_examples#component', as: :component
   devise_for :users
   devise_for :admins
@@ -17,6 +19,6 @@ Rails.application.routes.draw do
 
   resources :events
   resources :comments
-  
+
   root 'home#index'
 end
