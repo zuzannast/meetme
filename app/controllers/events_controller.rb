@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    render json: Event.stream_for(current_user.id)
+    render json: Event.all
   end
 
   def new
