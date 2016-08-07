@@ -12,5 +12,8 @@ export default {
   },
   joinEvent(eventId) {
     API.joinEvent(eventId);
+  },
+  leaveEvent(eventId) {
+    API.leaveEvent(eventId);
   }
 }

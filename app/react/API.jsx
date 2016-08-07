@@ -21,6 +21,13 @@ export default {
     .success( rawParticipant => ServerActions.receivedOneParticipant(rawParticipant))
     .error(error => console.log(error));
   },
+  leaveEvent(eventId) {
+    $.ajax({
+      url: "/participants/" + eventId,
+      method: 'DELETE'
+    }).done(rawParticipant => ServerActions.removedOneParticipant(rawParticipant))
+    .fail(error => console.log(error));
+  },
   getAllUsers() {
     $.get("/followers/random")
     .success( rawUsers => ServerActions.receivedUsers(rawUsers))
