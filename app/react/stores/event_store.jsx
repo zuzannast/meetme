@@ -32,6 +32,7 @@ AppDispatcher.register( action => {
     case ActionTypes.RECEIVED_ONE_EVENT:
       _events.unshift(action.rawEvent);
       EventStore.emitChange();
+      break;
     default:
       // no op
   }

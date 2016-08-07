@@ -6,7 +6,7 @@ import CommentStore from '../../stores/comment_store';
 import EventActions from '../../actions/event_actions';
 import CommentActions from '../../actions/comment_actions';
 import CommentsList from '../comments/comments_list';
-import CommentBox from '../comments/comment_box'
+import CommentBox from '../comments/comment_box';
 
 let getAppState = (eventId) => {
   return {
@@ -18,10 +18,7 @@ let getAppState = (eventId) => {
 export default class EventBox extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-                    event: EventStore.getOne(this.props.params.eventId),
-                    comments: CommentStore.getAll(this.props.params.eventId)
-                  }
+    this.state = getAppState(this.props.params.eventId);
     this._onChange = this._onChange.bind(this);
   }
 
@@ -42,29 +39,29 @@ export default class EventBox extends React.Component {
   }
 
   render() {
+    let event = this.state.event;
+
     return (
       <div className="events__event-box">
         <div className="demo-card-wide mdl-card mdl-shadow--2dp">
           <div className="mdl-card__title">
             <h2 className="mdl-card__title-text">
-              { this.state.event.title}
+              { event.title}
               <br />
-              { this.state.event.formatted_date }
+              { event.formatted_date }
             </h2>
           </div>
           <div className="mdl-card__supporting-text">
-            <big> { this.state.event.showtime.movie.title } </big>
+            <big> { event.showtime.movie.title } </big>
             <div>
-              { this.state.event.showtime.theater.city.name }, { this.state.event.showtime.theater.name }
+              { event.showtime.theater.city.name }, { event.showtime.theater.name }
             </div>
-            <i> { this.state.event.description } </i>
+            <i> { event.description } </i>
           </div>
           <div className="mdl-card__actions mdl-card--border">
-            <Link to={ this.state.event.organiser.path } className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-              { this.state.event.organiser.name }
-            </Link>
-            <Link to={ this.state.event.organiser.path } className="align-right mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-              Count me in!
+            <img className="mdl-list__item-avatar" src={ event.organiser.gravatar }/>
+            <Link to={ event.organiser.path } className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              { event.organiser.name }
             </Link>
           </div>
           <div className="mdl-card__menu">
@@ -74,7 +71,7 @@ export default class EventBox extends React.Component {
           </div>
         </div>
 
-        <CommentBox event_id={ this.state.event.id } />
+        <CommentBox event_id={ event.id } />
 
         <div className="demo-list-three">
           <CommentsList comments={ this.state.comments } />

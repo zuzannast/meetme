@@ -24,6 +24,7 @@ AppDispatcher.register( action => {
     case ActionTypes.RECEIVED_ONE_COMMENT:
       _comments.unshift(action.rawComment);
       CommentStore.emitChange();
+      break;
     default:
       // no op
   }
