@@ -15,6 +15,7 @@ import Comment from './components/comments/comment';
 import CommentBox from './components/comments/comment_box';
 import CommentsList from './components/comments/comments_list';
 import Follow from './components/follow';
+import JoinLink from './components/events/join_link';
 
 RWRReactRouter.register('Main', Main);
 RWR.registerComponent('App', App);
@@ -27,3 +28,4 @@ RWR.registerComponent('Comment', Comment);
 RWR.registerComponent('CommentBox', CommentBox);
 RWR.registerComponent('CommentsList', CommentsList);
 RWR.registerComponent('Follow', Follow);
+RWR.registerComponent('JoinLink', JoinLink);

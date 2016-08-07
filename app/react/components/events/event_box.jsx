@@ -7,6 +7,7 @@ import EventActions from '../../actions/event_actions';
 import CommentActions from '../../actions/comment_actions';
 import CommentsList from '../comments/comments_list';
 import CommentBox from '../comments/comment_box';
+import JoinLink from './join_link';
 
 let getAppState = (eventId) => {
   return {
@@ -63,6 +64,7 @@ export default class EventBox extends React.Component {
             <Link to={ event.organiser.path } className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
               { event.organiser.name }
             </Link>
+            <JoinLink event={ event }/>
           </div>
           <div className="mdl-card__menu">
             <button className="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
