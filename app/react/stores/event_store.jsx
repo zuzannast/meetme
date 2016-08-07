@@ -40,6 +40,10 @@ AppDispatcher.register( action => {
       _joinedIds.push(action.rawParticipant.event_id);
       EventStore.emitChange();
       break;
+    case ActionTypes.REMOVED_ONE_PARTICIPANT:
+      _joinedIds.push(action.rawParticipant.event_id);
+      EventStore.emitChange();
+      break;
     default:
       // no op
   }

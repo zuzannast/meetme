@@ -20,6 +20,12 @@ export default {
       rawParticipant
     })
   },
+  removedOneParticipant(rawParticipant) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.REMOVED_ONE_PARTICIPANT,
+      rawParticipant
+    })
+  },
   receivedUsers(rawUsers) {
     AppDispatcher.dispatch({
       actionType: ActionTypes.RECEIVED_USERS,
