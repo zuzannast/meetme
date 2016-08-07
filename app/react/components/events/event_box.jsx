@@ -24,7 +24,6 @@ export default class EventBox extends React.Component {
   }
 
   componentDidMount() {
-    EventActions.getOneEvent(this.props.params.eventId);
     CommentActions.getAllComments(this.props.params.eventId);
     EventStore.addChangeListener(this._onChange);
     CommentStore.addChangeListener(this._onChange);

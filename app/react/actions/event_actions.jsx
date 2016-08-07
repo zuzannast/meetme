@@ -9,5 +9,8 @@ export default {
   },
   sendEvent(description) {
     API.createEvent(description);
+  },
+  joinEvent(eventId) {
+    API.joinEvent(eventId);
   }
 }
