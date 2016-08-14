@@ -5,14 +5,6 @@ class EventsController < ApplicationController
   expose :showtimes, -> { showtimes_for_select }
   expose :user, -> { UserDecorator.new(current_user) }
 
-  def show
-    render json: event
-  end
-
-  def index
-    render json: events
-  end
-
   def new
     @event = Event.new
   end
