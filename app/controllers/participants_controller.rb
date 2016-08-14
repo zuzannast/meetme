@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-  expose(:participants) { Participant.all }
+  expose :participants, -> { Participant.all }
 
   def create
     participant = Participant.create(event_id: params[:event_id],

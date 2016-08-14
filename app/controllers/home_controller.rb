@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  expose_decorated(:user) { current_user }
+  expose :user, -> { UserDecorator.new(current_user) }
 
   def index
   end

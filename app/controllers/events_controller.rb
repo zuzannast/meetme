@@ -1,16 +1,16 @@
 class EventsController < ApplicationController
   include ShowtimeHelper
-  expose(:event) { Event.find(params[:id]) }
-  expose(:events) { Event.all }
-  expose(:showtimes) { showtimes_for_select }
-  expose_decorated(:user) { current_user }
+  expose :event
+  expose :events, -> { Event.all }
+  expose :showtimes, -> { showtimes_for_select }
+  expose :user, -> { UserDecorator.new(current_user) }
 
   def show
-    render json: Event.find(params[:id])
+    render json: event
   end
 
   def index
-    render json: Event.all
+    render json: events
   end
 
   def new
