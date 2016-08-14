@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
+gem 'rails-api'
 gem 'pg'
 gem 'erb2haml'
+gem 'rabl'
+gem 'oj'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
