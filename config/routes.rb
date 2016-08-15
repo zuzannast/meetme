@@ -1,14 +1,9 @@
 Rails.application.routes.draw do
-  resources :followers do
-    collection do
-      get 'random'
-    end
-  end
-
-  resources :participants
-
+  
   devise_for :users
   devise_for :admins
+
+  root 'home#index'
 
   resources :admins, only: :index
   resources :users do
@@ -16,8 +11,18 @@ Rails.application.routes.draw do
     post '/profile', to: 'user#update'
   end
 
-  resources :events
+  resources :events, only: [:new, :create]
   resources :comments
+  resources :participants
 
-  root 'home#index'
+  resources :followers do
+    collection do
+      get 'random'
+    end
+  end
+
+  # React routes
+  get '/app', to: 'home#index'
+  get '/app/events', to: 'events#index'
+  get '/app/events/:id', to: 'events#show'
 end

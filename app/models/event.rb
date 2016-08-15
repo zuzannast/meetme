@@ -42,7 +42,7 @@ class Event < ActiveRecord::Base
   end
 
   def event_path
-    "/events/#{id}"
+    "app/events/#{id}"
   end
 
   def self.stream_for(current_user_id)

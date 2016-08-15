@@ -11,12 +11,12 @@ import Follow from './follow';
 
 let Main =
   <Router history={browserHistory}>
-    <Route path="/" component={App}>
+    <Route path="/app" component={App}>
       <IndexRoute component={Index} />
-      <Route path="/events" component={EventsList}>
-        <Route path="/:eventId" component={EventBox}/>
+      <Route path="/app/events" component={EventsList}>
+        <Route path="/app/events/:id" component={EventBox}/>
       </Route>
-      <Route path="/follow" component={Follow} />
+      <Route path="/app/follow" component={Follow} />
     </Route>
   </Router>
 
