@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admins
 
-  root 'home#index'
-
   resources :admins, only: :index
   resources :users do
     get '/profile', to: 'users#show'
@@ -25,4 +23,6 @@ Rails.application.routes.draw do
   get '/app', to: 'home#index'
   get '/app/events', to: 'events#index'
   get '/app/events/:id', to: 'events#show'
+
+  root to: 'application#redirect_to_app'
 end

@@ -13,10 +13,10 @@ let Main =
   <Router history={browserHistory}>
     <Route path="/app" component={App}>
       <IndexRoute component={Index} />
-      <Route path="/app/events" component={EventsList}>
-        <Route path="/app/events/:id" component={EventBox}/>
+      <Route path="/events" component={EventsList}>
+        <Route path="/:id" component={EventBox}/>
       </Route>
-      <Route path="/app/follow" component={Follow} />
+      <Route path="/follow" component={Follow} />
     </Route>
   </Router>
 
