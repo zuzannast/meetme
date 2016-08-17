@@ -21,8 +21,12 @@ Rails.application.routes.draw do
 
   # React routes
   get '/app', to: 'home#index'
-  get '/app/events', to: 'events#index'
-  get '/app/events/:id', to: 'events#show'
+  scope '/app' do
+    resources :events, only: [:show, :index]
+    resources :comments
+    resources :followers
+    resources :participants
+  end
 
   root to: 'application#redirect_to_app'
 end

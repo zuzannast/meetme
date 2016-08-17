@@ -7,7 +7,7 @@ export default {
     .error(error => console.log(error));
   },
   getOneEvent(eventId) {
-    $.get("/app/events", { event_id: eventId })
+    $.get("/app/events/:id", { event_id: eventId })
     .success( rawEvent => ServerActions.receivedOneEvent(rawEvent))
     .error(error => console.log(error));
   },
