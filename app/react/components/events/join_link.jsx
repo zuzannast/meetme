@@ -15,7 +15,7 @@ export default class JoinLink extends React.Component {
   }
 
   joinText(joined) {
-    return joined ? 'Joined' : 'Count me in!';
+    return joined ? 'You joined' : 'Count me in!';
   }
 
   participantsAmount(joined){
