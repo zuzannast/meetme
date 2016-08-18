@@ -3,9 +3,13 @@
 }
 
 .pink {
-  color: rgb(255,64,129);
+  color: rgb(255,64,129) !important;
 }
 
 .grey {
-  color: rgba(0,0,0, 0.14);
+  color: rgba(0,0,0, 0.24) !important;
+}
+
+.blue {
+  color: rgb(63,81,181) !important;
 }
