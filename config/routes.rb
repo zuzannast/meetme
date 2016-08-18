@@ -10,22 +10,19 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:new, :create]
-  resources :comments
-  resources :participants
-
-  resources :followers do
-    collection do
-      get 'random'
-    end
-  end
 
   # React routes
   get '/app', to: 'home#index'
   scope '/app' do
     resources :events, only: [:show, :index]
     resources :comments
-    resources :followers
     resources :participants
+  
+    resources :followers do
+      collection do
+        get 'random'
+      end
+    end
   end
 
   root to: 'application#redirect_to_app'
