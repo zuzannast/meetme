@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
 
  has_many :events, through: :participants
  has_many :participants
- belongs_to :city
  has_many :comments
  has_one :profile
 

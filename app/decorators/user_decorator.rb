@@ -2,17 +2,33 @@ class UserDecorator < Draper::Decorator
   delegate_all
 
   def display_name
-    name_present? ? "#{first_name} #{last_name.chars.first}." : object.email.split('@').first
+    name_present? ? "#{profile.first_name} #{first_letter_of_last_name}." : name_from_email
   end
 
   def gravatar
-    hash = Digest::MD5.hexdigest(object.email)
+    hash = Digest::MD5.hexdigest(email)
     "http://www.gravatar.com/avatar/#{hash}?size=256"
+  end
+
+  def city
+    city_present? ? profile.city.name : 'Not specified'
   end
 
   private
 
   def name_present?
-    object.first_name.present? && object.last_name.present?
+    profile.first_name.present? && profile.last_name.present?
+  end
+
+  def city_present?
+    profile.city.present?
+  end
+
+  def first_letter_of_last_name
+    profile.last_name.chars.first
+  end
+
+  def name_from_email
+    email.split('@').first
   end
 end
