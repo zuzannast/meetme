@@ -1,17 +1,16 @@
-- if user_signed_in?
-  %li= link_to 'Edit profile', edit_user_path(current_user)
+.events__events-list
+  .profile-pic
+    .demo-card-image.mdl-card.mdl-shadow--2dp
+      = image_tag("#{user.gravatar}")
+  .profile-box
+    %h1= user.display_name
 
-%h1
-  About user
-%h4
-  Name
-  %p
-    = user.try(:first_name)
-    = user.try(:last_name)
-%h4
-  Email
-  %p= user.email
+    %h4
+      Email
+      %p= user.email
 
-%h4
-  City
-  %p=user.try(:city).try(:name)
+    %h4
+      City
+      %p= user.try(:city).try(:name)
+
+  = render 'user_statistics'

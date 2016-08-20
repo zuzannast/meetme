@@ -16,6 +16,8 @@
       %span.mdl-layout-title= user.display_name
       %nav.mdl-navigation
         %li.mdl-navigation__link= link_to 'My profile', user_profile_path(user)
+        %li.mdl-navigation__link= link_to 'Edit profile', edit_user_path(user)
+
         %li.mdl-navigation__link= link_to 'Log out', destroy_user_session_path, method: :delete
     - else
       %span.mdl-layout-title Join MeetMe
