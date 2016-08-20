@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users do
     get '/profile', to: 'users#show'
     post '/profile', to: 'user#update'
+    resources :profiles, except: [:index]
   end
 
   resources :events, only: [:new, :create]
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     resources :events, only: [:show, :index]
     resources :comments
     resources :participants
-  
+
     resources :followers do
       collection do
         get 'random'

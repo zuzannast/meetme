@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
  has_many :comments
  has_one :profile
 
+ accepts_nested_attributes_for :profile
+
  def as_json(options={})
    { id: id, name: self.decorate.display_name, gravatar: self.decorate.gravatar }
  end
