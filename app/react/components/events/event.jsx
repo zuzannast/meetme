@@ -13,17 +13,15 @@ export default class Event extends React.Component {
                 { this.props.showtime.time }
               </h4>
             </div>
-          </Link>
-          <Link to={ this.props.showtime.theater.path }>
             <div className="events__event-box-theater">
               { this.props.showtime.theater.city.name }, { this.props.showtime.theater.name }
             </div>
           </Link>
           <div className="mdl-card__actions mdl-card--border">
             <img className="mdl-list__item-avatar" src={ this.props.organiser.gravatar }/>
-            <Link to={ this.props.organiser.path } className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            <p className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
               { this.props.organiser.name }
-            </Link>
+            </p>
             <div className="mdl-layout-spacer"></div>
           </div>
         </div>

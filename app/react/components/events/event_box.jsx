@@ -60,9 +60,9 @@ export default class EventBox extends React.Component {
           </div>
           <div className="mdl-card__actions mdl-card--border">
             <img className="mdl-list__item-avatar" src={ event.organiser.gravatar }/>
-            <Link to={ event.organiser.path } className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            <p className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
               { event.organiser.name }
-            </Link>
+            </p>
             <JoinLink event={ event }/>
           </div>
           <div className="mdl-card__menu">
