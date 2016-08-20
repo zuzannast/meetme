@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820170224) do
+ActiveRecord::Schema.define(version: 20160820200032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,15 +93,21 @@ ActiveRecord::Schema.define(version: 20160820170224) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "user_id"
-    t.integer  "cities_id"
-    t.integer  "genres_id"
+    t.integer  "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "profiles", ["cities_id"], name: "index_profiles_on_cities_id", using: :btree
-  add_index "profiles", ["genres_id"], name: "index_profiles_on_genres_id", using: :btree
+  add_index "profiles", ["city_id"], name: "index_profiles_on_city_id", using: :btree
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "profiles_genres", force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "genre_id"
+  end
+
+  add_index "profiles_genres", ["genre_id"], name: "index_profiles_genres_on_genre_id", using: :btree
+  add_index "profiles_genres", ["profile_id"], name: "index_profiles_genres_on_profile_id", using: :btree
 
   create_table "profiles_traits", force: :cascade do |t|
     t.integer "value"
