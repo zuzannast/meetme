@@ -1,0 +1,9 @@
+.events__events-list
+  %ul.events-list.events__container-flex
+    - users.each do |user|
+      %li.event__box-flex
+        = link_to user_profile_path(user.id) do
+          .demo-card-image.mdl-card.mdl-shadow--2dp{ style: "background: url('#{user.decorate.gravatar}') center / cover;" }
+            .mdl-card__title.mdl-card--expand
+            .mdl-card__actions
+              %span.demo-card-image__filename= user.decorate.display_name

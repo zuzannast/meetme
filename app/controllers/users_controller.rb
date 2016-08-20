@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!
   expose :user, -> { UserDecorator.new(current_user) }
+  expose :users, -> { User.all }
   expose :cities, -> { cities_for_select }
 
   def edit
