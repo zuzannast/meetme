@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
  has_many :participants
  belongs_to :city
  has_many :comments
+ has_one :profile
 
  def as_json(options={})
    { id: id, name: self.decorate.display_name, gravatar: self.decorate.gravatar }
