@@ -1,0 +1,15 @@
+%div
+  .mdl-textfield.mdl-js-textfield
+    .mdl-textfield__label
+      = p.label :first_name
+    = p.text_field :first_name, class: "mdl-textfield__input"
+%div
+  .mdl-textfield.mdl-js-textfield
+    .mdl-textfield__label
+      = p.label :last_name
+    = p.text_field :last_name, class: "mdl-textfield__input"
+%div
+  .mdl-textfield.mdl-js-textfield
+    .mdl-textfield__label
+      = p.label :city_id
+    = p.select :city_id, cities, { include_blank: true }, class: "mdl-textfield__input"

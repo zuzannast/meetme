@@ -2,20 +2,8 @@
   %h2 Edit your profile
   = form_for(user, html: { method: :put }) do |f|
     = f.fields_for :profile do |p|
-      %div
-        .mdl-textfield.mdl-js-textfield
-          .mdl-textfield__label
-            = p.label :first_name
-          = p.text_field :first_name, class: "mdl-textfield__input"
-      %div
-        .mdl-textfield.mdl-js-textfield
-          .mdl-textfield__label
-            = p.label :last_name
-          = p.text_field :last_name, class: "mdl-textfield__input"
-      %div
-        .mdl-textfield.mdl-js-textfield
-          .mdl-textfield__label
-            = p.label :city_id
-          = p.select :city_id, cities, { include_blank: true }, class: "mdl-textfield__input"
+      = render 'edit_basic_info', p: p
+      = render 'edit_favourite_genres', p: p
+
     %div
       = f.submit "Save", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
