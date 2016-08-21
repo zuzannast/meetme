@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820200032) do
+ActiveRecord::Schema.define(version: 20160821152746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,23 @@ ActiveRecord::Schema.define(version: 20160820200032) do
   add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree
   add_index "participants", ["user_id"], name: "index_participants_on_user_id", using: :btree
 
+  create_table "profile_genres", force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "genre_id"
+  end
+
+  add_index "profile_genres", ["genre_id"], name: "index_profile_genres_on_genre_id", using: :btree
+  add_index "profile_genres", ["profile_id"], name: "index_profile_genres_on_profile_id", using: :btree
+
+  create_table "profile_traits", force: :cascade do |t|
+    t.integer "value"
+    t.integer "profile_id"
+    t.integer "trait_id"
+  end
+
+  add_index "profile_traits", ["profile_id"], name: "index_profile_traits_on_profile_id", using: :btree
+  add_index "profile_traits", ["trait_id"], name: "index_profile_traits_on_trait_id", using: :btree
+
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -100,23 +117,6 @@ ActiveRecord::Schema.define(version: 20160820200032) do
 
   add_index "profiles", ["city_id"], name: "index_profiles_on_city_id", using: :btree
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
-
-  create_table "profiles_genres", force: :cascade do |t|
-    t.integer "profile_id"
-    t.integer "genre_id"
-  end
-
-  add_index "profiles_genres", ["genre_id"], name: "index_profiles_genres_on_genre_id", using: :btree
-  add_index "profiles_genres", ["profile_id"], name: "index_profiles_genres_on_profile_id", using: :btree
-
-  create_table "profiles_traits", force: :cascade do |t|
-    t.integer "value"
-    t.integer "profile_id"
-    t.integer "trait_id"
-  end
-
-  add_index "profiles_traits", ["profile_id"], name: "index_profiles_traits_on_profile_id", using: :btree
-  add_index "profiles_traits", ["trait_id"], name: "index_profiles_traits_on_trait_id", using: :btree
 
   create_table "showtimes", force: :cascade do |t|
     t.string   "time"

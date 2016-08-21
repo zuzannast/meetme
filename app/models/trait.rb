@@ -1,4 +1,4 @@
 class Trait < ActiveRecord::Base
-  has_many :profiles, through: :profiles_traits
-  has_many :profiles_traits
+  has_many :profiles, through: :profile_traits
+  has_many :profile_traits
 end
