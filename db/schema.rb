@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821153415) do
+ActiveRecord::Schema.define(version: 20160823183338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,17 +90,21 @@ ActiveRecord::Schema.define(version: 20160821153415) do
   add_index "participants", ["user_id"], name: "index_participants_on_user_id", using: :btree
 
   create_table "profile_genres", force: :cascade do |t|
-    t.integer "profile_id"
-    t.integer "genre_id"
+    t.integer  "profile_id"
+    t.integer  "genre_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "profile_genres", ["genre_id"], name: "index_profile_genres_on_genre_id", using: :btree
   add_index "profile_genres", ["profile_id"], name: "index_profile_genres_on_profile_id", using: :btree
 
   create_table "profile_traits", force: :cascade do |t|
-    t.integer "value"
-    t.integer "profile_id"
-    t.integer "trait_id"
+    t.integer  "value"
+    t.integer  "profile_id"
+    t.integer  "trait_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "profile_traits", ["profile_id"], name: "index_profile_traits_on_profile_id", using: :btree
