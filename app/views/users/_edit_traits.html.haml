@@ -1,7 +1,7 @@
 %div
   %h4 Describe your traits
   .mdl-textfield.mdl-js-textfield
-    = p.fields_for :trait_attributes do |pt|
+    = p.fields_for :traits do |pt|
       - traits.each do |trait|
         %h5= trait.name
         %fieldset

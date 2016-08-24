@@ -15,11 +15,11 @@ module Users
 
     def create_or_update_profile_traits
       traits.each do |trait|
-        value = trait_params[trait.id.to_s].to_i
+        value = trait_params[trait.id.to_s]["value"].to_i
         profile_trait = find_profile_trait(trait.id, value)
 
         if profile_trait.present?
-          update_profile_trait(profle_trait, value)
+          update_profile_trait(profile_trait, value)
         else
           create_profile_trait(trait.id, value)
         end
@@ -46,7 +46,7 @@ module Users
     end
 
     def trait_params
-      params["user"]["profile_attributes"]["trait_attributes"]["value"]
+      params["user"]["profile_attributes"]["traits"]
     end
 
     def traits

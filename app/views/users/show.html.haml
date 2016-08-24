@@ -1,9 +1,9 @@
 .events__events-list
   .profile-pic
     .demo-card-image.mdl-card.mdl-shadow--2dp
-      = image_tag("#{user.gravatar}")
+      = image_tag("#{decorated_user.gravatar}")
   .profile-box
-    %h1= user.display_name
+    %h1= decorated_user.display_name
 
     %h4
       Email
@@ -11,6 +11,6 @@
 
     %h4
       City
-      %p= user.city
+      %p= decorated_user.city
 
   = render 'user_statistics'

@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   include CityHelper
 
   before_action :authenticate_user!
-  expose :user, -> { UserDecorator.new(current_user) }
+  expose :user
+  expose :decorated_user, -> { UserDecorator.new(user) }
   expose :profile, -> { user.profile }
   expose :users, -> { User.all }
   expose :cities, -> { cities_for_select }
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      profile_attributes: [:id, :first_name, :last_name, :city_id, { genre_ids: [] }, trait_attributes: { id: {}, value: {} }]
+      profile_attributes: [:id, :first_name, :last_name, :city_id, { genre_ids: [] }]
     )
   end
 
