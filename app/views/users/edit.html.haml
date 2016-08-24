@@ -2,9 +2,9 @@
   %h2 Edit your profile
   = form_for(user, html: { method: :put }) do |f|
     = f.fields_for :profile do |p|
-      = render 'edit_basic_info', p: p
-      = render 'edit_favourite_genres', p: p
-      = render 'edit_traits', p: p
+      = render 'users/edit/basic_info', p: p
+      = render 'users/edit/favourite_genres', p: p
+      = render 'users/edit/profile_traits', p: p
 
     %div
       = f.submit "Save", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
