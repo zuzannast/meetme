@@ -4,6 +4,7 @@
     = f.fields_for :profile do |p|
       = render 'edit_basic_info', p: p
       = render 'edit_favourite_genres', p: p
+      = render 'edit_traits', p: p
 
     %div
       = f.submit "Save", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent"

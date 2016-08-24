@@ -1,0 +1,31 @@
+%div
+  %h4 Describe your traits
+  .mdl-textfield.mdl-js-textfield
+    = p.fields_for :trait_attributes do |pt|
+      - traits.each do |trait|
+        %h5= trait.name
+        %fieldset
+          %label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect
+            = pt.radio_button "#{trait.id}[value]", 1, class: "mdl-radio__button"
+            %span.mdl-radio__label
+              = p.label "1"
+
+          %label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect
+            = pt.radio_button "#{trait.id}[value]", 2, class: "mdl-radio__button"
+            %span.mdl-radio__label
+              = p.label "2"
+
+          %label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect
+            = pt.radio_button "#{trait.id}[value]", 3, class: "mdl-radio__button"
+            %span.mdl-radio__label
+              = p.label "3"
+
+          %label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect
+            = pt.radio_button "#{trait.id}[value]", 4, class: "mdl-radio__button"
+            %span.mdl-radio__label
+              = p.label "4"
+
+          %label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect
+            = pt.radio_button "#{trait.id}[value]", 5, class: "mdl-radio__button"
+            %span.mdl-radio__label
+              = p.label "5"
