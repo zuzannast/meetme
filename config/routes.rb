@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:new, :create]
+  resources :theaters, only: [:index, :show]
 
   # React routes
   get '/app', to: 'home#index'
