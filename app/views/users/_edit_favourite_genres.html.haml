@@ -2,5 +2,4 @@
   %h4 Favourite movie genres
   .mdl-textfield.mdl-js-textfield
     .mdl-textfield__label
-    = p.fields_for :genres do |pg|
-      = pg.select :genre_ids, genres, {}, multiple: true, class: "mdl-textfield__input"
+    = p.select :genre_ids, genres, {}, multiple: true, class: "mdl-textfield__input"
