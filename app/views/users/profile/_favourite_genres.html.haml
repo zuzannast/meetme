@@ -1,0 +1,9 @@
+.profile-genres
+  %h4 Favourite genres
+  %ul.demo-list-icon.mdl-list
+    - user.profile.genres.each do |genre|
+      %li.mdl-list__item
+        %span.mdl-list__item-primary-content
+          = genre.name
+        %a.mdl-list__item-secondary-action
+          %i.material-icons heart
