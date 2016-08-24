@@ -1,0 +1,11 @@
+.profile-genres
+  %h4 Current showtimes
+  %ul.demo-list-icon.mdl-list
+    - showtimes_grouped_by_movie.each do |group|
+      %li.mdl-list__item
+        %span.mdl-list__item-primary-content
+          = movie_title(group)
+          - group.last.each do |showtime|
+            = showtime.time + ', '
+        %a.mdl-list__item-secondary-action
+          %i.material-icons today

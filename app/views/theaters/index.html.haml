@@ -1,0 +1,11 @@
+.events__events-list
+  %ul.events-list.events__container-flex
+    - theaters.each do |theater|
+      %li.event__box-flex
+        = link_to theater_path(theater.id) do
+          .demo-card-image.mdl-card.mdl-shadow--2dp.theater__box
+            .mdl-card__title
+              %h2.mdl-card__title-text.theater__title
+                = theater.name
+                %br
+                %small= theater.city.name
