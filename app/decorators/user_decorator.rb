@@ -14,6 +14,10 @@ class UserDecorator < Draper::Decorator
     city_present? ? profile.city.name : 'Not specified'
   end
 
+  def profile_trait(trait)
+    ProfileTrait.find_by(profile_id: profile.id, trait_id: trait.id)
+  end
+
   private
 
   def name_present?

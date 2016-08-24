@@ -1,2 +1,10 @@
-.profile-stats
+.profile-traits
   %h4 Traits
+  %ul.demo-list-icon.mdl-list.profile__list
+    - traits.each do |trait|
+      %li.mdl-list__item
+        %span.mdl-list__item-primary-content
+          = trait.name
+        %a.mdl-list__item-secondary-action
+          %b= decorated_user.profile_trait(trait).value
+          %i.material-icons face
