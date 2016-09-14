@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require material
 //= require moment
+//= require mdDateTimePicker.min
 //= require react_integration
 //= require react_bundle
 //= require events
