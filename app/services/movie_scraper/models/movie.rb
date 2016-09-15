@@ -37,13 +37,15 @@ module MovieScraper
 
       def info_hash
         {
-          time: info[0],
-          genres: info[1].split("/"),
-          origin: info[2]
+          time: info_time,
+          genres: info_genres,
+          origin: info_origin
         }
       end
 
       def add_genres
+        return if info_hash[:genres].empty?
+
         info_hash[:genres].each do |genre_name|
           movie.genres << ::Genre.find_or_create_by(name: genre_name)
         end
@@ -57,6 +59,18 @@ module MovieScraper
             theater: theater
           )
         end
+      end
+
+      def info_time
+        info[0][/^[1-9]hr.*/] || ''
+      end
+
+      def info_genres
+        info[1].nil? ? '' : info[1].split("/")
+      end
+
+      def info_origin
+        info[2].nil? ? '' : info[2]
       end
     end
   end
