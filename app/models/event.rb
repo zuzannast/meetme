@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   has_many :users, through: :participants
   has_many :participants
-  has_one  :showtime
+  belongs_to :showtime
   has_many :comments
 
   validates :date, :description, :title, :organiser_id, :showtime_id, presence: true
