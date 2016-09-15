@@ -10,15 +10,27 @@ User.create!([
     email: 'samer.buna@gmail.com',
     password: 'password',
     password_confirmation: 'password',
-    first_name: 'Samer',
-    last_name: 'Buma'
   },
   {
     email: 'aaron.patterson@gmail.com',
     password: 'password',
     password_confirmation: 'password',
+  }
+])
+
+### User profiles
+Profile.create!([
+  {
+    first_name: 'Samer',
+    last_name: 'Buma',
+    user: User.first,
+    city: City.first
+  },
+  {
     first_name: 'Aaron',
-    last_name: 'Patterson'
+    last_name: 'Patterson',
+    user: User.last,
+    city: City.last
   }
 ])
 
