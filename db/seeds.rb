@@ -55,15 +55,15 @@ events = Event.create([
       the outcome afterwards. Hope to see you there!
       ",
     date: '2016-06-03 00:00:00',
-    showtime_id: Showtime.first,
-    organiser_id: User.first
+    showtime: Showtime.first,
+    organiser_id: User.first.id
   },
 
   {
     title: 'Fire at Sea, MeetMe at Paradiso',
     description: "Just wanted to invite you for some exciting stuff.",
     date: '2016-06-03 00:00:00',
-    showtime_id: Showtime.last,
-    organiser_id: User.last
+    showtime: Showtime.last,
+    organiser_id: User.last.id
   },
 ])
