@@ -1,0 +1,16 @@
+.events__events-list
+  %ul.events-list.events__container-flex
+    - events.each do |event|
+      %li.event__box-flex
+        .demo-card-event.mdl-card.mdl-shadow--2dp
+          .mdl-card__title.mdl-card--expand
+            %h4
+              = event.showtime[:movie][:title]
+              = event.showtime[:time]
+          .events__event-box-theater
+            = event.showtime[:theater][:city][:name] + ',' + event.showtime[:theater][:name]
+          .mdl-card__actions.mdl-card--border
+            %img.mdl-list__item-avatar{src: event.organiser[:gravatar] }
+            %p.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect
+              = event.organiser[:name]
+            .mdl-layout-spacer

@@ -27,5 +27,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/events_list', to: 'events#full_list'
   root to: 'application#redirect_to_app'
 end

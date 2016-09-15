@@ -13,6 +13,9 @@ class EventsController < ApplicationController
     render json: events
   end
 
+  def full_list
+  end
+
   def new
     @event = Event.new
   end
