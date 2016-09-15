@@ -1,17 +1,19 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.demo-list-three
+  .mdl-card.mdl-shadow--6dp
+    .mdl-card__title.mdl-color--primary.mdl-color-text--white
+      %h2.mdl-card__title-text Log in
+    .mdl-card__supporting-text
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .mdl-textfield.mdl-js-textfield
+          = f.label :email, class: ".mdl-textfield__label"
+          = f.email_field :email, autofocus: true, class: "textfield mdl-textfield__input"
+        .mdl-textfield.mdl-js-textfield
+          = f.label :password, class: ".mdl-textfield__label"
+          = f.password_field :password, autocomplete: "off", class: "textfield mdl-textfield__input"
+        - if devise_mapping.rememberable?
+          .mdl-textfield.mdl-js-textfield
+            = f.check_box :remember_me
+            = f.label :remember_me, class: ".mdl-textfield__label"
+        .mdl-card__actions.mdl-card--border
+          = f.submit "Log in", class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect form-submit-button"
+      = render "devise/shared/links"
