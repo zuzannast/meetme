@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   # expose :user, -> { UserDecorator.new(current_user) }
 
   def redirect_to_app
-    redirect_to app_path
+    if user_signed_in?
+      redirect_to app_path
+    else
+      redirect_to events_list_path
+    end
   end
 end
