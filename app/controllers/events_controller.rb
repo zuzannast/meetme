@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   include ShowtimeHelper
+  before_action :authenticate_user!, only: [:index]
+
   expose :event
   expose :events, -> { Event.all }
   expose :showtimes, -> { showtimes_for_select }
@@ -10,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    render json: events
+    render json: personalised_events
   end
 
   def full_list
@@ -52,6 +54,10 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def personalised_events
+    events.personalised_stream(current_user.profile.city_id)
+  end
 
   def event_params
     params.require(:event).permit(:title, :description, :date, :showtime_id)
