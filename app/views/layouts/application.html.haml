@@ -10,9 +10,10 @@
     = render 'layouts/react_hot_assets'
     = render 'layouts/navbar'
 
-    %main.mdl-layout__container
-      %p.notice= notice
-      %p.alert= alert
-      = yield
+    .demo-blog.mdl-layout.mdl-js-layout.has-drawer.is-upgraded
+      %main.mdl-layout__container
+        %p.notice= notice
+        %p.alert= alert
+        = yield
 
-    %footer
+      %footer
