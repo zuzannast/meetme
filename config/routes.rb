@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :users do
     get '/profile', to: 'users#show'
     post '/profile', to: 'user#update'
-    resources :profiles, except: [:index]
   end
 
   resources :events, only: [:new, :create]
