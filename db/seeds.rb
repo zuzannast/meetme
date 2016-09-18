@@ -18,6 +18,15 @@ User.create!([
   }
 ])
 
+### Cities and theaters
+cities = City.create([{ name: 'Kraków' }, { name: 'Warszawa' }])
+theaters = Theater.create([
+  { name: 'ARS Krakowskie Centrum Kinowe-Aneks', city: City.first },
+  { name: 'Kino Agrafka', city: City.first },
+  { name: 'Kino Atlantic', city: City.last },
+  { name: 'Paradiso', city: City.last }
+])
+
 ### User profiles
 Profile.create!([
   {
@@ -32,15 +41,6 @@ Profile.create!([
     user: User.last,
     city: City.last
   }
-])
-
-### Cities and theaters
-cities = City.create([{ name: 'Kraków' }, { name: 'Warszawa' }])
-theaters = Theater.create([
-  { name: 'ARS Krakowskie Centrum Kinowe-Aneks', city: City.first },
-  { name: 'Kino Agrafka', city: City.first },
-  { name: 'Kino Atlantic', city: City.last },
-  { name: 'Paradiso', city: City.last }
 ])
 
 ### Movies and showtimes
