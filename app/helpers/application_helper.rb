@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def redirect_to_app_or_profile
-    if profile_not_updated?
+    if city_not_set?
       redirect_to user_profile_path(current_user.id), flash: { notice: update_city_message }
     else
       redirect_to app_path
@@ -17,7 +17,7 @@ module ApplicationHelper
 
   private
 
-  def profile_not_updated?
+  def city_not_set?
     current_user.profile.city.nil?
   end
 
