@@ -2,7 +2,8 @@ class UserDecorator < Draper::Decorator
   delegate_all
 
   def display_name
-    name_present? ? "#{profile.first_name} #{first_letter_of_last_name}." : name_from_email
+    return full_name if name_present?
+    name_from_email
   end
 
   def gravatar
@@ -19,6 +20,10 @@ class UserDecorator < Draper::Decorator
   end
 
   private
+
+  def full_name
+    "#{profile.first_name} #{first_letter_of_last_name}."
+  end
 
   def name_present?
     profile.first_name.present? && profile.last_name.present?
