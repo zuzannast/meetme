@@ -1,21 +1,24 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.demo-list-three
+  .mdl-card.mdl-shadow--6dp
+    .mdl-card__title.mdl-color--primary.mdl-color-text--white
+      %h2.mdl-card__title-text Sign up
+    .mdl-card__supporting-text
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        .mdl-textfield.mdl-js-textfield
+          = f.label :email, class: ".mdl-textfield__label"
+          = f.email_field :email, autofocus: true, class: "textfield mdl-textfield__input"
+        .mdl-textfield.mdl-js-textfield
+          = f.label :password, class: ".mdl-textfield__label"
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          = f.password_field :password, autocomplete: "off", class: "textfield mdl-textfield__input"
+        .mdl-textfield.mdl-js-textfield
+          = f.label :password_confirmation, class: ".mdl-textfield__label"
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          = f.password_field :password_confirmation, autocomplete: "off", class: "textfield mdl-textfield__input"
+        .mdl-card__actions.mdl-card--border
+          = f.submit "Sign up", class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect form-submit-button"
+      = render "devise/shared/links"
