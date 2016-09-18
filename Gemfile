@@ -4,6 +4,7 @@ gem 'rails', '4.2.6'
 gem 'pg'
 gem 'erb2haml'
 gem 'rails-erd'
+gem 'whenever', require: false
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
