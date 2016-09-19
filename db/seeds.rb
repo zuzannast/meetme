@@ -79,3 +79,17 @@ events = Event.create([
     organiser_id: User.last.id
   },
 ])
+
+### Traits
+traits = Trait.create([
+  { name: 'emotionality' },
+  { name: 'talkativeness' },
+  { name: 'eating during showtime' }
+])
+
+### Genres
+genres = Genre.create([
+  { name: 'Drama' },
+  { name: 'Horror' },
+  { name: 'Comedy' }
+])
