@@ -15,9 +15,6 @@ class EventsController < ApplicationController
     render json: personalised_events
   end
 
-  def full_list
-  end
-
   def new
     @event = Event.new
   end
@@ -31,13 +28,10 @@ class EventsController < ApplicationController
                       )
     event.users << current_user
     if event.save
-      redirect_to events_path
+      redirect_to root_path, flash: { message: 'Your event has been saved' }
     else
       render :new
     end
-  end
-
-  def edit
   end
 
   def update
