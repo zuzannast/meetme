@@ -50,7 +50,7 @@ class EventsController < ApplicationController
   private
 
   def personalised_events
-    events.personalised_stream(current_user.profile.city_id)
+    events.personalised_stream(current_user)
   end
 
   def event_params

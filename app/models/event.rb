@@ -54,7 +54,9 @@ class Event < ActiveRecord::Base
     .all
   end
 
-  def self.personalised_stream(current_user_city_id)
-    joins(:showtime).where("theater_id IN (?)", City.find(current_user_city_id).theaters.pluck(:id))
+  def self.personalised_stream(current_user)
+    joins(:showtime)
+      .where("theater_id IN (?)", City.find(current_user.profile.city_id).theaters.pluck(:id))
+      .where("organiser_id != ?", current_user.id)
   end
 end
