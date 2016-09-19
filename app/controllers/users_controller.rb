@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   expose :cities, -> { cities_for_select }
   expose :genres, -> { get_genres }
   expose :traits, -> { get_traits }
+  expose :user_events, -> { current_user.events }
 
   def edit
     user.build_profile unless profile
