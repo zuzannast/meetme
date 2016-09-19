@@ -1,6 +1,5 @@
 require 'nokogiri'
 require 'open-uri'
-require 'json'
 
 module MovieScraper
   class Scraper
@@ -11,35 +10,45 @@ module MovieScraper
     end
 
     def run
-      html = Nokogiri::HTML(open("http://www.google.com/movies?mid=&hl=en&near=#{I18n.transliterate(city_name)}"))
-
-      results = []
-      html.css('#movie_results .theater').each do |div|
-          name = div.css('h2 a').text.empty? ? div.css('h2').text : div.css('h2 a').text
-          next if div.css('.closure').text == 'Not showing movies'
-
-          movies = []
-          theater = MovieScraper::Models::Theater.new(name, city_name).to_h
-
-          div.css('.movie').each do |movie|
-              title = movie.css('.name a').text
-              showtimes = []
-              times = movie.css('.times').text
-                .gsub('#8206;', '')
-                .gsub('&nbsp;', '')
-                .gsub('&nbsp', '')
-                .gsub('&', '')
-                .gsub('&#39;', "'")
-              showtimes = times.split(" ")
-              info = movie.css('.info').text.split(" - ")
-
-              movie_result = MovieScraper::Models::Movie.new(title, showtimes, theater['name'], info).to_h
-              movies.push(movie_result)
-          end
-          results.push(theater)
+      if next_page?(starting_html)
+        multiple_run(starting_html)
+      else
+        single_run(city_name, starting_html)
       end
+    end
 
-      puts results.to_json
+    private
+
+    def multiple_run(html)
+      SingleRun.new(city_name, html).execute
+
+      number_of_pages(html).times do |i|
+        next if i == 0
+
+        html = html.concat(",&start=#{i}0")
+        SingleRun.new(city_name, html).execute
+        i += 1
+      end
+    end
+
+    def single_run(city, html)
+      SingleRun.new(city, html).execute
+    end
+
+    def next_page?(html)
+      nokogiri_open_html(html).css(".n table .b a").text == 'Next'
+    end
+
+    def starting_html
+      "http://www.google.com/movies?mid=&hl=en&near=#{I18n.transliterate(city_name)}"
+    end
+
+    def number_of_pages(html)
+      nokogiri_open_html(html).css(".n table td").text.delete("Next").last.to_i
+    end
+
+    def nokogiri_open_html(html)
+      Nokogiri::HTML(open(html))
     end
   end
 end
