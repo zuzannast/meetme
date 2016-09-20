@@ -1,9 +1,11 @@
 $( document ).ready(function() {
   var datetimeInputField = document.getElementById('datetime-input-field');
   var datetimeSelect = document.getElementById('datetime-select');
+  var futureMoment = moment().add(2, 'months');
   var dialog = new mdDateTimePicker['default']({
     type: 'date',
-    trigger: datetimeInputField
+    trigger: datetimeInputField,
+    future: futureMoment
    });
 
   if (datetimeSelect){
