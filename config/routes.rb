@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get '/my_events', to: 'users#user_events'
   end
 
-  resources :events, only: [:new, :create]
+  resources :events, except: [:index, :show]
   resources :theaters, only: [:index, :show]
 
   # React routes

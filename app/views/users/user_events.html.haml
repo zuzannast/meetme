@@ -13,4 +13,7 @@
             %img.mdl-list__item-avatar{src: event.organiser[:gravatar] }
             %p.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect
               = event.organiser[:name]
+            = link_to edit_event_path(event) do
+              %p.mdl-button.mdl-color-text--grey-200.mdl-js-button.mdl-js-ripple-effect.pull-right
+                Edit
             .mdl-layout-spacer

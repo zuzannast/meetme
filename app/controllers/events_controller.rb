@@ -3,7 +3,6 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:index]
 
   expose :event
-  expose :new_event, -> { Event.new }
   expose :events, -> { Event.all }
   expose :showtimes, -> { showtimes_for_select }
   expose :user, -> { UserDecorator.new(current_user) }
@@ -25,7 +24,7 @@ class EventsController < ApplicationController
                       )
     event.users << current_user
     if event.save
-      redirect_to root_path, flash: { message: 'Your event has been saved' }
+      redirect_to root_path, flash: { message: 'Sucessfully saved' }
     else
       render :new
     end
@@ -33,7 +32,7 @@ class EventsController < ApplicationController
 
   def update
     if event.save
-      redirect_to event_path(event)
+      redirect_to root_path, flash: { message: 'Sucessfully updated' }
     else
       render :edit
     end

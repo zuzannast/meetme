@@ -19,6 +19,10 @@ class UserDecorator < Draper::Decorator
     ProfileTrait.find_by(profile_id: profile.id, trait_id: trait.id)
   end
 
+  def organiser?(organiser_id)
+    object.id == organiser_id
+  end
+
   private
 
   def full_name
