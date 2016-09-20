@@ -22,6 +22,7 @@ gem 'devise'
 gem 'draper'
 gem 'haml'
 gem 'material_design_lite-sass'
+gem 'materialize-sass'
 gem 'nokogiri'
 gem 'thin'
 

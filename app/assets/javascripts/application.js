@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require materialize-sprockets
 //= require material
 //= require moment
 //= require mdDateTimePicker.min

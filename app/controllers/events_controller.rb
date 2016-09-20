@@ -24,7 +24,7 @@ class EventsController < ApplicationController
                       )
     event.users << current_user
     if event.save
-      redirect_to root_path, flash: { message: 'Sucessfully saved' }
+      redirect_to root_path, flash: { notice: 'Event sucessfully saved' }
     else
       render :new
     end
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
 
   def update
     if event.save
-      redirect_to root_path, flash: { message: 'Sucessfully updated' }
+      redirect_to root_path, flash: { notice: 'Event sucessfully updated' }
     else
       render :edit
     end
