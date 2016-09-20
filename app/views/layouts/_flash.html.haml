@@ -1,0 +1,5 @@
+- flash.each do |type, message|
+  :javascript
+    $(function() {
+      Materialize.toast('#{message}', 3000);
+    });

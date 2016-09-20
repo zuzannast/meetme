@@ -12,13 +12,8 @@
 
     .demo-blog.mdl-layout.mdl-js-layout.has-drawer.is-upgraded
       %main.mdl-layout__container
-        - flash.each do |type, message|
-          :javascript
-            $(function() {
-              Materialize.toast('#{message}', 3000);
-            });
-        -# %p.notice= notice
-        -# %p.alert= alert
+        - if flash.any?
+          = render 'layouts/flash'
         = yield
 
       %footer
