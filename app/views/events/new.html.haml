@@ -3,7 +3,7 @@
     .mdl-card__title.mdl-color--primary.mdl-color-text--white
       %h2.mdl-card__title-text Create Event
     .mdl-card__supporting-text
-      = form_for(@event) do |f|
+      = form_for(new_event) do |f|
         .mdl-textfield.mdl-js-textfield
           = f.text_field :title, class: "textfield mdl-textfield__input"
           .mdl-textfield__label Title

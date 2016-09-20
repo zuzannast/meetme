@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:index]
 
   expose :event
+  expose :new_event, -> { Event.new }
   expose :events, -> { Event.all }
   expose :showtimes, -> { showtimes_for_select }
   expose :user, -> { UserDecorator.new(current_user) }
@@ -13,10 +14,6 @@ class EventsController < ApplicationController
 
   def index
     render json: personalised_events
-  end
-
-  def new
-    @event = Event.new
   end
 
   def create
