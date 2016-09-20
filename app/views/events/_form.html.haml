@@ -1,0 +1,18 @@
+.mdl-card__supporting-text
+  = form_for(event) do |f|
+    .mdl-textfield.mdl-js-textfield
+      = f.text_field :title, class: "textfield mdl-textfield__input"
+      .mdl-textfield__label Title
+    .mdl-textfield.mdl-js-textfield
+      = f.text_area :description, class: "mdl-textfield__input"
+      .mdl-textfield__label Description
+    .mdl-selectfield
+      = f.select :showtime_id, showtimes_for_select, class: "browser-default", prompt: "Select showtime"
+    .mddtpp-p
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.hidden#date-field
+        = f.text_field :date, class: "mdl-textfield__input", id: "datetime-input-field"
+    .mdl-button.mdl-button--colored
+      = link_to "Pick a date", "#", id: "datetime-select"
+
+    .mdl-card__actions.mdl-card--border
+      = f.submit 'Publish', class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect form-submit-button"
