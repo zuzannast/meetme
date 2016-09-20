@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
  has_many :events, through: :participants
- has_many :participants
- has_many :comments
- has_one :profile
+ has_many :participants, dependent: :destroy
+ has_many :comments, dependent: :destroy
+ has_one :profile, dependent: :destroy
 
  accepts_nested_attributes_for :profile
 
