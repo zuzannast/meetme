@@ -11,7 +11,7 @@ export default class JoinLink extends React.Component {
   }
 
   joinClasses(joined) {
-    return 'align-right mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect ' + (joined ? "blue" : "pink");
+    return 'align-right mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect ' + (joined ? "blue-text" : "pink-text");
   }
 
   joinText(joined) {
@@ -34,7 +34,7 @@ export default class JoinLink extends React.Component {
         <a className={this.joinClasses(joined)} onClick={this.clickOption(joined)}>
           {this.joinText(joined)}
         </a>
-        <small className="align-right mdl-button grey"> {this.participantsAmount(joined)} participants </small>
+        <small className="align-right mdl-button grey-text"> {this.participantsAmount(joined)} participants </small>
       </div>
     );
   }

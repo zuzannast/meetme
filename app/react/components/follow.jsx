@@ -32,7 +32,7 @@ export default class Follow extends React.Component {
   }
 
   followClasses(following) {
-    return "mdl-list__item-secondary-content " + (following ? "pink" : "grey");
+    return "mdl-list__item-secondary-content " + (following ? "pink-text" : "grey-text");
   }
 
   render() {

@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 export default class Event extends React.Component {
   render() {
     return (
+      <Link to={ this.props.event_path }>
       <div className="mdl-card mdl-shadow--2dp theater-people mdl-cell mdl-cell--12-col">
         <div className="mdl-card__media mdl-color-text--grey-50">
           <h3>
@@ -22,6 +23,7 @@ export default class Event extends React.Component {
           </div>
         </div>
       </div>
+      </Link>
     );
   }
 }
