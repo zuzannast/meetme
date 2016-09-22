@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include CityHelper
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
   expose :user
   expose :decorated_user, -> { UserDecorator.new(user) }
   expose :profile, -> { user.profile }

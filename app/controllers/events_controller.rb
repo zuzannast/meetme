@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   include ShowtimeHelper
-  before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!, except: [:full_list]
 
   expose :event
   expose :events, -> { Event.all }
