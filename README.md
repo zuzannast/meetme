@@ -37,4 +37,4 @@ For React and Webpack, MeetMe is using Netguru's gem:
 I suggest to follow it's [development environment](https://github.com/netguru/react_webpack_rails) instructions.
 
 ## ERD Diagram
-![alt tag](https://raw.githubusercontent.com/ZuzannaSt/meetme/blob/master/diagram-erd.png)
+![erd](https://github.com/ZuzannaSt/meetme/blob/master/diagram-erd.png)
